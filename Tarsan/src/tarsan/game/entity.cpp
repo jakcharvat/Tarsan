@@ -7,7 +7,12 @@
 
 #include "entity.hpp"
 
+#include "../ncurses/color.hpp"
 
-class Entity {
-    
+
+void
+Entity::draw(WINDOW *window) const {
+    wmove(window, coord.y, coord.x);
+    attrset(Color::pair(COLOR_WHITE, COLOR_DEFAULT));
+    printw("%c", getchar());
 }
