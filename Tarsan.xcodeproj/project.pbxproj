@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DEFD13E9285581B600762D44 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD13E8285581B600762D44 /* main.cpp */; };
+		DEFD16D2285581CB00762D44 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD168F285581CB00762D44 /* color.cpp */; };
+		DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD1690285581CB00762D44 /* char-helpers.cpp */; };
+		DEFD16DA285581CB00762D44 /* out.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16A8285581CB00762D44 /* out.cpp */; };
+		DEFD16DC285581CB00762D44 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16AB285581CB00762D44 /* test.cpp */; };
+		DEFD16E0285581CB00762D44 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16B4285581CB00762D44 /* main.cpp */; };
+		DEFD16E4285582B700762D44 /* fatal-error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E2285582B700762D44 /* fatal-error.cpp */; };
+		DEFD16E7285585BE00762D44 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E5285585BE00762D44 /* app.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +30,24 @@
 
 /* Begin PBXFileReference section */
 		DEFD13E5285581B600762D44 /* Tarsan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tarsan; sourceTree = BUILT_PRODUCTS_DIR; };
-		DEFD13E8285581B600762D44 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DEFD165C285581CA00762D44 /* Tarsan.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Tarsan.entitlements; sourceTree = "<group>"; };
+		DEFD165F285581CB00762D44 /* tarsan-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarsan-logo.png"; sourceTree = "<group>"; };
+		DEFD168F285581CB00762D44 /* color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = color.cpp; sourceTree = "<group>"; };
+		DEFD1690285581CB00762D44 /* char-helpers.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = "char-helpers.cpp"; sourceTree = "<group>"; };
+		DEFD1692285581CB00762D44 /* color.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = color.hpp; sourceTree = "<group>"; };
+		DEFD1693285581CB00762D44 /* char-helpers.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = "char-helpers.hpp"; sourceTree = "<group>"; };
+		DEFD16A7285581CB00762D44 /* out.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = out.hpp; sourceTree = "<group>"; };
+		DEFD16A8285581CB00762D44 /* out.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = out.cpp; sourceTree = "<group>"; };
+		DEFD16AB285581CB00762D44 /* test.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = test.cpp; sourceTree = "<group>"; };
+		DEFD16B4285581CB00762D44 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		DEFD16B5285581CB00762D44 /* Doxyfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Doxyfile; sourceTree = "<group>"; };
+		DEFD16B6285581CB00762D44 /* zadani.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = zadani.txt; sourceTree = "<group>"; };
+		DEFD16B8285581CB00762D44 /* prohlaseni.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = prohlaseni.txt; sourceTree = "<group>"; };
+		DEFD16B9285581CB00762D44 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		DEFD16E2285582B700762D44 /* fatal-error.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "fatal-error.cpp"; sourceTree = "<group>"; };
+		DEFD16E3285582B700762D44 /* fatal-error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "fatal-error.hpp"; sourceTree = "<group>"; };
+		DEFD16E5285585BE00762D44 /* app.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = app.cpp; sourceTree = "<group>"; };
+		DEFD16E6285585BE00762D44 /* app.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = app.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +80,82 @@
 		DEFD13E7285581B600762D44 /* Tarsan */ = {
 			isa = PBXGroup;
 			children = (
-				DEFD13E8285581B600762D44 /* main.cpp */,
+				DEFD165C285581CA00762D44 /* Tarsan.entitlements */,
+				DEFD165E285581CB00762D44 /* assets */,
+				DEFD16BC285581CB00762D44 /* examples */,
+				DEFD1660285581CB00762D44 /* src */,
+				DEFD16B5285581CB00762D44 /* Doxyfile */,
+				DEFD16B9285581CB00762D44 /* Makefile */,
+				DEFD16B8285581CB00762D44 /* prohlaseni.txt */,
+				DEFD16B6285581CB00762D44 /* zadani.txt */,
 			);
 			path = Tarsan;
+			sourceTree = "<group>";
+		};
+		DEFD165E285581CB00762D44 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD165F285581CB00762D44 /* tarsan-logo.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		DEFD1660285581CB00762D44 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD1662285581CB00762D44 /* tarsan */,
+				DEFD16AC285581CB00762D44 /* tests */,
+				DEFD16AB285581CB00762D44 /* test.cpp */,
+				DEFD16B4285581CB00762D44 /* main.cpp */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		DEFD1662285581CB00762D44 /* tarsan */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD168B285581CB00762D44 /* ncurses */,
+				DEFD16A4285581CB00762D44 /* logging */,
+			);
+			path = tarsan;
+			sourceTree = "<group>";
+		};
+		DEFD168B285581CB00762D44 /* ncurses */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD1693285581CB00762D44 /* char-helpers.hpp */,
+				DEFD1690285581CB00762D44 /* char-helpers.cpp */,
+				DEFD1692285581CB00762D44 /* color.hpp */,
+				DEFD168F285581CB00762D44 /* color.cpp */,
+				DEFD16E6285585BE00762D44 /* app.hpp */,
+				DEFD16E5285585BE00762D44 /* app.cpp */,
+			);
+			path = ncurses;
+			sourceTree = "<group>";
+		};
+		DEFD16A4285581CB00762D44 /* logging */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD16A7285581CB00762D44 /* out.hpp */,
+				DEFD16A8285581CB00762D44 /* out.cpp */,
+				DEFD16E2285582B700762D44 /* fatal-error.cpp */,
+				DEFD16E3285582B700762D44 /* fatal-error.hpp */,
+			);
+			path = logging;
+			sourceTree = "<group>";
+		};
+		DEFD16AC285581CB00762D44 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		DEFD16BC285581CB00762D44 /* examples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = examples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +215,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEFD13E9285581B600762D44 /* main.cpp in Sources */,
+				DEFD16E7285585BE00762D44 /* app.cpp in Sources */,
+				DEFD16DC285581CB00762D44 /* test.cpp in Sources */,
+				DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */,
+				DEFD16D2285581CB00762D44 /* color.cpp in Sources */,
+				DEFD16DA285581CB00762D44 /* out.cpp in Sources */,
+				DEFD16E0285581CB00762D44 /* main.cpp in Sources */,
+				DEFD16E4285582B700762D44 /* fatal-error.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,9 +340,23 @@
 		DEFD13ED285581B600762D44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Tarsan/Tarsan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P4L2M42FLR;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I/opt/homebrew/opt/ncurses/include",
+					"-std=c++17",
+					"-g",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+				);
+				OTHER_LDFLAGS = (
+					"-L/opt/homebrew/opt/ncurses/lib",
+					"-lncursesw",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -248,9 +364,23 @@
 		DEFD13EE285581B600762D44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Tarsan/Tarsan.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = P4L2M42FLR;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-I/opt/homebrew/opt/ncurses/include",
+					"-std=c++17",
+					"-g",
+					"-Wall",
+					"-Wextra",
+					"-pedantic",
+				);
+				OTHER_LDFLAGS = (
+					"-L/opt/homebrew/opt/ncurses/lib",
+					"-lncursesw",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

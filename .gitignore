@@ -1,0 +1,37 @@
+# Ignore all files without extensions
+*
+!*.*
+!*/
+!Makefile
+!Doxyfile
+
+
+# Built files
+*.out
+*/.o
+*/.d
+doc/
+charvj12/
+charvj12.zip
+
+
+# Vim session save files
+*.save
+
+
+# Xcode files
+xcuserdata/
+
+
+# Runtime output
+*.log
+
+
+# System files
+.DS_Store
+.DS_Store?
+*.dSYM
+.Trashes
+Thumbs.db
+.ccls-cache
+
