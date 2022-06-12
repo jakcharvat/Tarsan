@@ -48,6 +48,13 @@ Map::_generateRandomMap() {
         map.push_back(std::move(row));
     }
 
+
+    for (int x = 1; x < 10; ++x) {
+        map[9][x] = std::make_unique<StoneEntity>(Coord {x, 9});
+    }
+
+    map[10][1] = std::make_unique<LianaEntity>(Coord {1, 10});
+
     return map;
 }
 
@@ -69,4 +76,34 @@ Map::draw(WINDOW *window) const {
             entity->draw(window);
         }
     }
+
+    _player.draw(window);
+}
+
+
+void
+Map::update() {
+    for (auto & row : _map) {
+        for (auto & entity : row) {
+            if (entity) entity->update(*this);
+        }
+    }
+
+    _player.update(*this);
+}
+
+
+int Map::raycast(Coord origin, RaycastDirection direction, int limit) const {
+    const int step = direction == RaycastDirection::DOWN ? 1 : -1;
+    int ray = 0;
+
+    origin.y += step;
+    while (_map[origin.y][origin.x] == nullptr) {
+        if (limit != -1 && ray >= limit) break;
+
+        ray += 1;
+        origin.y += step;
+    }
+
+    return ray;
 }

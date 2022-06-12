@@ -11,7 +11,7 @@
 
 
 char
-LianaEntity::getChar(WINDOW * window) const {
+LianaEntity::_getChar(WINDOW * window) const {
     wattrset(window, Color::pair(COLOR_GREEN, COLOR_DEFAULT));
     return '|';
 }

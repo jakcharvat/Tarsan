@@ -14,7 +14,7 @@
 /// A class representing a single block of lava
 ///
 class LavaEntity: public Entity {
-    char getChar(WINDOW * window) const override;
+    char _getChar(WINDOW * window) const override;
 
 public:
     /// Construct a lava entity at the given position

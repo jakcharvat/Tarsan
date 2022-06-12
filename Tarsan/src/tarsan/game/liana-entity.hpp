@@ -14,7 +14,7 @@
 /// A class storing a liana entity
 ///
 class LianaEntity: public Entity {
-    char getChar(WINDOW * window) const override;
+    char _getChar(WINDOW * window) const override;
 
 public:
     /// Construct a liana entity at the given position

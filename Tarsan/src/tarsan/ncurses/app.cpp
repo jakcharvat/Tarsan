@@ -23,6 +23,7 @@
 
 void
 App::update() {
+    _map->update();
 }
 
 

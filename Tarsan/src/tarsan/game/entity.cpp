@@ -9,14 +9,26 @@
 
 #include "../ncurses/color.hpp"
 
+#include "map.hpp"
+
 
 Entity::Entity(Coord position):
-coord(position) { }
+position(position) { }
+
+
+void
+Entity::update(Map &) { }
+
+
+bool
+Entity::_isOnGround(Map &map) const {
+    return map.raycast(position, Map::RaycastDirection::DOWN, 1) == 0;
+}
 
 
 void
 Entity::draw(WINDOW *window) const {
-    wmove(window, coord.y, coord.x);
+    wmove(window, position.y, position.x);
     wattrset(window, Color::pair(COLOR_WHITE, COLOR_DEFAULT));
-    wprintw(window, "%c", getChar(window));
+    wprintw(window, "%c", _getChar(window));
 }

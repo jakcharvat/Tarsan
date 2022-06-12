@@ -12,6 +12,9 @@
 #include "../helpers/coord.hpp"
 
 
+class Map;
+
+
 ///
 /// A class storing a single entity
 ///
@@ -23,12 +26,23 @@ private:
     ///
     /// @param window the window to use for drawing. Can be used to set attributes on it
     /// @returns the char to draw
-    virtual char getChar(WINDOW * window) const = 0;
+    virtual char _getChar(WINDOW *window) const = 0;
+
+protected:
+    /// Check if the entity is standing on the ground
+    /// @param map the map to use for the check
+    /// @returns true if the entity is on the ground
+    bool _isOnGround(Map &map) const;
 
 public:
     /// Construct an entity at the given position
     /// @param position the position to construct at
     Entity(Coord position);
+
+    /// Performa a single frame update of this entity
+    ///
+    /// @param map a reference to the map so the entity can move itself if needed
+    virtual void update(Map &map);
     
     /// Draw this entity to the given window
     /// @param window the window to draw to
@@ -37,7 +51,7 @@ public:
     ///
     /// The current position of the entity
     ///
-    Coord coord;
+    Coord position;
 
     ///
     /// Virtual destructor for abstract class
