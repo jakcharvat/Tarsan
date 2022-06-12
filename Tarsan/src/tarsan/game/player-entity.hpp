@@ -82,6 +82,10 @@ private:
     /// @param map the map to shoot in
     void _shootLiana(Map &map);
 
+    /// Check whether the player is in lava and if so then deal damage accordingly
+    /// @param map the map used to check for lava
+    void _giveLavaDamage(Map &map);
+
     /// Deal damage to the player
     /// @param hp the amount of hp to take
     void _damage(int hp);

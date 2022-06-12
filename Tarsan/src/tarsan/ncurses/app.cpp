@@ -15,19 +15,28 @@
 
 
 #include "../logging/fatal-error.hpp"
-#include "../logging/menu-error.hpp"
 #include "../logging/pause-error.hpp"
 #include "../logging/out.hpp"
+#include "../ncurses/alert.hpp"
 #include "../ncurses/char-helpers.hpp"
 
 
 void
-App::update() {
-    int key;
-    while ((key = _input->poll()) != -1) {
-        _map->handleEvent(key);
-    }
+App::_update() {
     _map->update();
+}
+
+
+bool
+App::_showAlert(const MenuError &err) {
+    std::shared_ptr<Alert> alert (new Alert (err.what(), "Press any key to start a new game"));
+
+    int w, h;
+    getmaxyx(stdscr, h, w);
+    Window window (stdscr, alert, { 1, 1 }, { w - 2, h - 2 });
+    window.setup();
+    window.draw();
+    return alert->waitForUserInteraction(*_input);
 }
 
 
@@ -84,26 +93,28 @@ App::run() {
         throw FatalError("Window setup error");
     }
 
-    _window->draw();
+    try {
+        while (true) {
+            int c = _input->getchar();
+            _window->draw();
 
-    while (true) {
-        int c = _input->getchar();
-        _window->draw();
+            out() << "Got char " << c << std::endl;
 
-        out() << "Got char " << c << std::endl;
+            if (CharHelpers::isEscape(c)) return false;
+            if (c != -1) _map->handleEvent(c);
+            if (c == 'r') break;
 
-        if (CharHelpers::isEscape(c)) break;
-//        if (c != -1) _input->buffer(c);
-        if (c != -1) _map->handleEvent(c);
+            if (_nextUpdate <= std::chrono::steady_clock::now()) {
+                _update();
+                _nextUpdate = _nextUpdate + UPDTATE_DURATION;
+            }
 
-        if (_nextUpdate <= std::chrono::steady_clock::now()) {
-            update();
-            _nextUpdate = _nextUpdate + UPDTATE_DURATION;
+            auto nextPoll = _nextPoll + POLL_DURATION;
+            _nextPoll = nextPoll;
+            std::this_thread::sleep_until(nextPoll);
         }
-
-        auto nextPoll = _nextPoll + POLL_DURATION;
-        _nextPoll = nextPoll;
-        std::this_thread::sleep_until(nextPoll);
+    } catch (const MenuError & e) {
+        return _showAlert(e);
     }
 
     return true;

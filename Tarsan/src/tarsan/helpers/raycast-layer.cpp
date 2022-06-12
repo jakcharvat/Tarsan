@@ -10,18 +10,18 @@
 
 bool
 raycastMaskMatches(int mask, RaycastLayer layer) {
-    return (mask & static_cast<int>(layer)) != 0;
+    return (mask & raycastMask(layer)) != 0;
 }
 
 
 int
 dangerRaycastMask(RaycastLayer until) {
-    int untilInt = static_cast<int>(until);
+    int untilInt = raycastMask(until);
     return untilInt | untilInt - 1;
 }
 
 
 int
 safeRaycastMask(RaycastLayer until) {
-    return (LAYER_MASK_RANGE ^ dangerRaycastMask(until)) | static_cast<int>(until);
+    return (LAYER_MASK_RANGE ^ dangerRaycastMask(until)) | raycastMask(until);
 }

@@ -22,11 +22,12 @@
 
 
 class Map: public Drawable {
-private:
+public:
     using EntityPtr = std::unique_ptr<Entity>;
     using EntityRow = std::vector<EntityPtr>;
     using EntityMap = std::vector<EntityRow>;
 
+private:
     ///
     /// Generate a random map
     ///

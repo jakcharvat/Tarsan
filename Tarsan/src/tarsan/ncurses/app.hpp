@@ -12,6 +12,7 @@
 #include <queue>
 
 #include "../game/map.hpp"
+#include "../logging/menu-error.hpp"
 
 #include "input-window.hpp"
 #include "window.hpp"
@@ -69,7 +70,12 @@ private:
     ///
     /// Update the game
     ///
-    void update();
+    void _update();
+
+    /// Show an error message
+    /// @param err the error to show the message for
+    /// @returns whether a new game should start
+    bool _showAlert(const MenuError & err);
 
     ///
     /// A queue of characters received since the last update

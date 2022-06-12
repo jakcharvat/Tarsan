@@ -30,6 +30,15 @@ InputWindow::getchar() {
 }
 
 
+int
+InputWindow::blockingGetchar() {
+    nodelay(_contentWindow, false);
+    int c = wgetch(_contentWindow);
+    nodelay(_contentWindow, true);
+    return c;
+}
+
+
 void
 InputWindow::buffer(int c) {
     _buffer.push(c);

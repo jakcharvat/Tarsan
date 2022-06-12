@@ -21,7 +21,6 @@ PlayerEntity::_performFall(int distance) {
     if (_vertVelocity > 2) {
         _damage(_vertVelocity * _vertVelocity);
     }
-    _tookDamage = true;
     _vertVelocity = 0;
 }
 
@@ -113,8 +112,17 @@ PlayerEntity::_shootLiana(Map &map) {
 
 
 void
+PlayerEntity::_giveLavaDamage(Map &map) {
+    if (map.at(position)) {
+        _damage(map.at(position)->getLavaLevel());
+    }
+}
+
+
+void
 PlayerEntity::_damage(int hp) {
     _hp = std::max(_hp - hp, 0);
+    _tookDamage = true;
     if (_hp == 0) throw MenuError("You died");
 }
 
@@ -163,6 +171,8 @@ PlayerEntity::getHp() const {
 void
 PlayerEntity::update(Map &map) {
     _tookDamage = false;
+
+    _giveLavaDamage(map);
 
     int free = map.raycast(position, Direction::DOWN, dangerRaycastMask(RaycastLayer::STONE), std::max(0, _vertVelocity + 1));
 

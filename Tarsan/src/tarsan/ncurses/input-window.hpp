@@ -35,6 +35,10 @@ public:
     /// @returns a character received from ncurses
     int getchar();
 
+    /// Block the thread until a key is received
+    /// @returns the key received
+    int blockingGetchar();
+
     /// Store a character to be available during the next update
     /// @param c the char to store
     void buffer(int c);

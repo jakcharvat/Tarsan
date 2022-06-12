@@ -56,12 +56,12 @@ Window::draw() const {
     if (!isSetup()) return;
 
     if (_borderWindow) {
-        wclear(_borderWindow);
+        werase(_borderWindow);
         box(_borderWindow, 0, 0);
         wrefresh(_borderWindow);
     }
 
-    wclear(_contentWindow);
+    werase(_contentWindow);
     _drawable->draw(_contentWindow);
     wrefresh(_contentWindow);
 }

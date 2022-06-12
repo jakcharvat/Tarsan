@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <initializer_list>
+
 
 enum class RaycastLayer: int {
     STONE = 1,
@@ -16,16 +18,13 @@ enum class RaycastLayer: int {
 };
 
 
-constexpr int LEAST_DANGEROUS_LAYER = static_cast<int>(RaycastLayer::EMPTY);
-constexpr int LAYER_MASK_RANGE = LEAST_DANGEROUS_LAYER | LEAST_DANGEROUS_LAYER - 1;
-
-
 /// Convert the given layers into a single bitmask
 ///
 /// @tparam Args the arguments. Must all be RaycastLayer
 /// @param layers the layers to combine
 /// @returns a combined bitmask
 template <typename... Args>
+constexpr
 int raycastMask(Args... layers) {
     int mask = 0;
     for (RaycastLayer layer : { layers... }) {
@@ -33,6 +32,10 @@ int raycastMask(Args... layers) {
     }
     return mask;
 }
+
+
+constexpr int LEAST_DANGEROUS_LAYER = raycastMask(RaycastLayer::EMPTY);
+constexpr int LAYER_MASK_RANGE = LEAST_DANGEROUS_LAYER | LEAST_DANGEROUS_LAYER - 1;
 
 
 /// Check whether the bitmask contains the specified layer
