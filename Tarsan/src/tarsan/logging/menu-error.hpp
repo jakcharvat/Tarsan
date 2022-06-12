@@ -14,7 +14,7 @@
 /// A less severe error than `FatalError`
 ///
 /// This error doesn't force the app to shutdown, it merely forces it back into the menu with an error message
-class MenuError: std::exception {
+class MenuError: public std::exception {
     ///
     /// The error message
     ///
