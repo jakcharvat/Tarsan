@@ -22,10 +22,11 @@ Map::_generateRandomMap() {
             if (i == 0 || j == 0 || i == HEIGHT - 1 || j == WIDTH - 1) {
                 entity = std::make_unique<StoneEntity>(position);
             } else {
-                int type = random() % 4;
+                int type = random() % 1;
                 switch (type) {
                     case 0: {
                         entity = nullptr;
+                        break;
                     }
                     case 1: {
                         entity = std::make_unique<StoneEntity>(position);
