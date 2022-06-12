@@ -7,6 +7,7 @@
 
 #include "player-entity.hpp"
 
+#include "../ncurses/char-helpers.hpp"
 #include "../ncurses/color.hpp"
 #include "../logging/out.hpp"
 
@@ -57,6 +58,46 @@ PlayerEntity::_isOnLiana(Map &map) {
 }
 
 
+Coord
+PlayerEntity::_keyToCoord(int key) const {
+    Coord step { 0, 0 };
+    char l = tolower(key);
+
+    if (l == 'q' || l == 'a' || l == 'z') {
+        step = step + directionStep(Direction::LEFT);
+    } else if (l == 'e' || l == 'd' || l == 'c') {
+        step = step + directionStep(Direction::RIGHT);
+    }
+
+    if (l == 'q' || l == 'w' || l == 'e') {
+        step = step + directionStep(Direction::UP);
+    } else if (l == 'z' || l == 'x' || l == 'c') {
+        step = step + directionStep(Direction::DOWN);
+    }
+
+    return position + step;
+}
+
+
+void
+PlayerEntity::_destroy(int key, Map &map) {
+    Coord coord = _keyToCoord(key);
+    Coord above = coord + directionStep(Direction::UP);
+
+    int mask = raycastMask(RaycastLayer::STONE);
+    if (map.raycast(above, Direction::DOWN, mask, 1) == 1) return;
+
+    map.deleteEntity(coord);
+}
+
+
+void
+PlayerEntity::_build(int key, Map &map) {
+    Coord coord = _keyToCoord(key);
+    map.setEntity(std::make_unique<StoneEntity>(coord));
+}
+
+
 char
 PlayerEntity::_getChar(WINDOW * window) const {
     const int colour = _tookDamage ? COLOR_RED : COLOR_GREEN;
@@ -80,6 +121,12 @@ PlayerEntity::handleEvent(int key, Map &map) {
         _jump(map);
     } else if (key == KEY_DOWN) {
         _move(Direction::DOWN, map);
+    } else if (CharHelpers::isBuild(key)) {
+        if (isupper(key)) {
+            _destroy(key, map);
+        } else {
+            _build(key, map);
+        }
     }
 }
 

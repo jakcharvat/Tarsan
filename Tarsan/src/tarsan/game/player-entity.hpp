@@ -58,6 +58,18 @@ private:
     /// @param map the map to check in
     bool _isOnLiana(Map &map);
 
+    Coord _keyToCoord(int key) const;
+
+    /// Break a block at the position specified by the key
+    /// @param key the event raising this action
+    /// @param map the map to delete in
+    void _destroy(int key, Map &map);
+
+    /// Build a block at the position specified by the key
+    /// @param key the event raising this action
+    /// @param map the map to delete in
+    void _build(int key, Map &map);
+
     char _getChar(WINDOW * window) const override;
 
 public:

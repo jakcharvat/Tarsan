@@ -62,4 +62,17 @@ public:
     /// @param c the character to test
     /// @returns whether or not c is the escape key
     static bool isEscape (int c);
+
+    /// Check whther the given character is a build character.
+    ///
+    /// Build characters are:
+    ///     q w e
+    ///     a   d
+    ///     z x c
+    ///
+    /// And their uppercase counterparts for destruction
+    ///
+    /// @param c the character to test
+    /// @returns true if `c` is a build character
+    static bool isBuild (int c);
 };

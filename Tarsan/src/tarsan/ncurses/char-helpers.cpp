@@ -55,3 +55,13 @@ CharHelpers::isEscape (int c) {
     nodelay(stdscr, false);
     return n == -1;
 }
+
+
+bool
+CharHelpers::isBuild(int c) {
+    if (!isalpha(c)) return false;
+    char l = tolower(c);
+    return l == 'q' || l == 'w' || l == 'e'
+        || l == 'a'             || l == 'd'
+        || l == 'z' || l == 'x' || l == 'c';
+}
