@@ -14,6 +14,8 @@
 		DEFD16E0285581CB00762D44 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16B4285581CB00762D44 /* main.cpp */; };
 		DEFD16E4285582B700762D44 /* fatal-error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E2285582B700762D44 /* fatal-error.cpp */; };
 		DEFD16E7285585BE00762D44 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E5285585BE00762D44 /* app.cpp */; };
+		DEFD16EB2855983B00762D44 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E92855983B00762D44 /* entity.cpp */; };
+		DEFD16EF2855985C00762D44 /* coordinate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16ED2855985C00762D44 /* coordinate.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -48,6 +50,10 @@
 		DEFD16E3285582B700762D44 /* fatal-error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "fatal-error.hpp"; sourceTree = "<group>"; };
 		DEFD16E5285585BE00762D44 /* app.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = app.cpp; sourceTree = "<group>"; };
 		DEFD16E6285585BE00762D44 /* app.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = app.hpp; sourceTree = "<group>"; };
+		DEFD16E92855983B00762D44 /* entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = entity.cpp; sourceTree = "<group>"; };
+		DEFD16EA2855983B00762D44 /* entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = entity.hpp; sourceTree = "<group>"; };
+		DEFD16ED2855985C00762D44 /* coordinate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = coordinate.cpp; sourceTree = "<group>"; };
+		DEFD16EE2855985C00762D44 /* coordinate.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = coordinate.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,8 @@
 		DEFD1662285581CB00762D44 /* tarsan */ = {
 			isa = PBXGroup;
 			children = (
+				DEFD16EC2855985000762D44 /* helpers */,
+				DEFD16E82855982F00762D44 /* game */,
 				DEFD168B285581CB00762D44 /* ncurses */,
 				DEFD16A4285581CB00762D44 /* logging */,
 			);
@@ -156,6 +164,24 @@
 			children = (
 			);
 			path = examples;
+			sourceTree = "<group>";
+		};
+		DEFD16E82855982F00762D44 /* game */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD16E92855983B00762D44 /* entity.cpp */,
+				DEFD16EA2855983B00762D44 /* entity.hpp */,
+			);
+			path = game;
+			sourceTree = "<group>";
+		};
+		DEFD16EC2855985000762D44 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				DEFD16ED2855985C00762D44 /* coordinate.cpp */,
+				DEFD16EE2855985C00762D44 /* coordinate.hpp */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEFD16EF2855985C00762D44 /* coordinate.cpp in Sources */,
+				DEFD16EB2855983B00762D44 /* entity.cpp in Sources */,
 				DEFD16E7285585BE00762D44 /* app.cpp in Sources */,
 				DEFD16DC285581CB00762D44 /* test.cpp in Sources */,
 				DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */,

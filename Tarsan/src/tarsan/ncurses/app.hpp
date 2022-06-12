@@ -7,8 +7,9 @@
 
 #pragma once
 
-#include <ncurses.h>
 #include <chrono>
+#include <ncurses.h>
+#include <queue>
 
 
 ///
@@ -49,6 +50,10 @@ private:
     /// Update the game
     ///
     void update();
+
+    ///
+    /// A queue of characters received since the last update
+    std::queue<int> chars;
 
 
 public:

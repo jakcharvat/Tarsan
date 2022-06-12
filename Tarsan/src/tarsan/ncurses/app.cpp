@@ -16,6 +16,7 @@
 
 #include "../logging/fatal-error.hpp"
 #include "../logging/out.hpp"
+#include "../ncurses/char-helpers.hpp"
 
 
 void
@@ -27,6 +28,7 @@ App::update() {
 App::App() {
     // Setup inspired by
     // https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/amp/
+    set_escdelay(10);
     setlocale(LC_ALL, "");
     if (!initscr()) {
         throw FatalError("Cannot init ncurses window");
@@ -65,6 +67,7 @@ App::run() {
         int c = getch();
         out() << c << std::endl;
 
+        if (CharHelpers::isEscape(c)) break;
         if (c == 'q') break;
 
         if (_nextUpdate <= std::chrono::steady_clock::now()) {
