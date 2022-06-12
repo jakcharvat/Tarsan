@@ -63,6 +63,10 @@ private:
     bool _isModifiable(Coord position) const;
 
 public:
+    /// Construct a map instance for the given map
+    /// @param map the map to use for this game
+    Map(EntityMap map);
+
     /// Draw the map to the given window
     /// @param window the window to draw to
     void draw(WINDOW * window);

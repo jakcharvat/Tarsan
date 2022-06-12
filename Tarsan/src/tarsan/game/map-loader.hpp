@@ -27,7 +27,7 @@ public:
     ///
     /// @returns the loaded map
     /// @throws fatal error if loading failed
-    virtual EntityMap getMap() = 0;
+    virtual EntityMap getMap() const = 0;
 
     ///
     /// Virtual destructor needed for base class

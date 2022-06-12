@@ -13,6 +13,7 @@
 
 #include "../game/map.hpp"
 #include "../logging/menu-error.hpp"
+#include "../game/map-loader.hpp"
 
 #include "input-window.hpp"
 #include "window.hpp"
@@ -60,7 +61,7 @@ private:
     ///
     /// The map of the current game
     ///
-    std::shared_ptr<Map> _map = std::make_shared<Map>();
+    std::shared_ptr<Map> _map = nullptr;
 
     ///
     /// The window of the current game
@@ -91,7 +92,7 @@ public:
 
     /// Start actually running the app
     /// @returns true if another game should be started
-    bool run();
+    bool run(const MapLoader & loader);
 
 
     ///

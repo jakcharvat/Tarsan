@@ -46,6 +46,10 @@ Map::_isModifiable(Coord position) const {
 }
 
 
+Map::Map(EntityMap map):
+_map(std::move(map)) { }
+
+
 void
 Map::draw(WINDOW *window) {
     _deleteAllPending();

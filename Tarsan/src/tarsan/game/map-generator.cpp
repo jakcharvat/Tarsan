@@ -11,12 +11,15 @@
 #include "player-entity.hpp"
 #include "liana-entity.hpp"
 #include "lava-entity.hpp"
+#include "map-generator-config.hpp"
 
 
 MapGenerator::EntityMap
-MapGenerator::getMap() {
-    const int WIDTH = 40;
-    const int HEIGHT = 20;
+MapGenerator::getMap() const {
+    MapGeneratorConfig config = MapGeneratorConfig::loadFromFile("examples/generator.config");
+    
+    const int WIDTH = config.mapWidth;
+    const int HEIGHT = config.mapHeight;
 
     EntityMap map;
     for (int i = 0; i < HEIGHT; ++i) {
@@ -27,11 +30,12 @@ MapGenerator::getMap() {
             if (i == 0 || j == 0 || i == HEIGHT - 1 || j == WIDTH - 1) {
                 entity = std::make_unique<StoneEntity>(position);
             } else {
-                if (random() % 4 == 0) {
+                int num = random() % 100;
+                if (num < config.stoneProbability) {
                     entity = std::make_unique<StoneEntity>(position);
-                } else if (random() % 4 == 0) {
+                } else if (num < config.stoneProbability + config.lianaProbability) {
                     entity = std::make_unique<LianaEntity>(position);
-                } else if (random() % 50 == 0) {
+                } else if (num < config.stoneProbability + config.lianaProbability + config.lavaProbability) {
                     entity = std::make_unique<LavaEntity>(position);
                 }
             }

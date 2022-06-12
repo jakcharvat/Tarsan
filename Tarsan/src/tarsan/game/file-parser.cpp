@@ -26,6 +26,8 @@ FileParser::parse(std::ifstream &stream) {
             continue;
         }
 
+        if (data.count(key)) throw ParseError("Duplicate key: " + key);
+
         int value;
         stream >> value;
         if (!stream) throw ParseError("Couldn't parse value for key " + key);

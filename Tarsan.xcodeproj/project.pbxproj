@@ -17,6 +17,7 @@
 		DE24F3282856718C009EF665 /* map-generator-config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F3262856718C009EF665 /* map-generator-config.cpp */; };
 		DE24F32B28567417009EF665 /* file-parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F32928567417009EF665 /* file-parser.cpp */; };
 		DE24F33028567C9E009EF665 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16B4285581CB00762D44 /* main.cpp */; };
+		DE24F33228568098009EF665 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16AB285581CB00762D44 /* test.cpp */; };
 		DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */; };
 		DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD32855FBB100DA94A6 /* direction.cpp */; };
 		DE3FDCDA285616B700DA94A6 /* raycast-layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD8285616B700DA94A6 /* raycast-layer.cpp */; };
@@ -69,6 +70,9 @@
 		DE24F32D285676FE009EF665 /* missingValue.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = missingValue.txt; sourceTree = "<group>"; };
 		DE24F32E285677B0009EF665 /* nonIntValue.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nonIntValue.txt; sourceTree = "<group>"; };
 		DE24F32F28567C5D009EF665 /* noSemicolon.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = noSemicolon.txt; sourceTree = "<group>"; };
+		DE24F33128567E04009EF665 /* duplicateKey.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = duplicateKey.txt; sourceTree = "<group>"; };
+		DE24F3332856816E009EF665 /* unknownKeyGenerator.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = unknownKeyGenerator.config; sourceTree = "<group>"; };
+		DE24F3342856821D009EF665 /* percentageOverflowGenerator.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = percentageOverflowGenerator.config; sourceTree = "<group>"; };
 		DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "input-window.cpp"; sourceTree = "<group>"; };
 		DE3FDCD02855ED4D00DA94A6 /* input-window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "input-window.hpp"; sourceTree = "<group>"; };
 		DE3FDCD22855FB7E00DA94A6 /* direction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = direction.hpp; sourceTree = "<group>"; };
@@ -232,6 +236,9 @@
 				DE24F32D285676FE009EF665 /* missingValue.txt */,
 				DE24F32E285677B0009EF665 /* nonIntValue.txt */,
 				DE24F32F28567C5D009EF665 /* noSemicolon.txt */,
+				DE24F33128567E04009EF665 /* duplicateKey.txt */,
+				DE24F3332856816E009EF665 /* unknownKeyGenerator.config */,
+				DE24F3342856821D009EF665 /* percentageOverflowGenerator.config */,
 			);
 			path = examples;
 			sourceTree = "<group>";
@@ -342,6 +349,7 @@
 				DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */,
 				DE1FEA1B2855DB910016D98D /* window.cpp in Sources */,
 				DEFD16E7285585BE00762D44 /* app.cpp in Sources */,
+				DE24F33228568098009EF665 /* test.cpp in Sources */,
 				DE24F33028567C9E009EF665 /* main.cpp in Sources */,
 				DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */,
 				DEFD16D2285581CB00762D44 /* color.cpp in Sources */,

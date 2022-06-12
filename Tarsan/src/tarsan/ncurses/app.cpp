@@ -71,7 +71,9 @@ App::App() {
 
 
 bool
-App::run() {
+App::run(const MapLoader & loader) {
+    _map = std::make_shared<Map>(loader.getMap());
+
     _nextPoll = std::chrono::steady_clock::now();
     _nextUpdate = std::chrono::steady_clock::now();
 

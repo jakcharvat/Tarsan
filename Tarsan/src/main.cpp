@@ -12,16 +12,18 @@
 #include "tarsan/logging/fatal-error.hpp"
 #include "tarsan/ncurses/app.hpp"
 
-#include "tarsan/game/file-parser.hpp"
+#include "tarsan/game/map-generator.hpp"
 
 
 int main() {
     srandom(static_cast<unsigned int>(time(nullptr)));
 
+    MapGenerator generator;
+
     while (true) {
         try {
             App app;
-            if (!app.run()) break;
+            if (!app.run(generator)) break;
         } catch (const FatalError & error) {
             std::cerr << "Fatal error: " << error.what() << std::endl;
             std::cerr << "The app cannot continue, sorry :(" << std::endl;

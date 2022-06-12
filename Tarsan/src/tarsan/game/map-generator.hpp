@@ -11,5 +11,5 @@
 
 
 class MapGenerator: public MapLoader {
-    EntityMap getMap() override;
+    EntityMap getMap() const override;
 };
