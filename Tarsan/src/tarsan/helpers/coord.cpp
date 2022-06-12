@@ -31,3 +31,12 @@ Coord::operator+(const Coord &other) const {
         y + other.y,
     };
 }
+
+
+Coord
+Coord::operator*(int scalar) const {
+    return {
+        x * scalar,
+        y * scalar,
+    };
+}

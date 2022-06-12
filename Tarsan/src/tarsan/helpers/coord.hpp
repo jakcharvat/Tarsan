@@ -44,6 +44,11 @@ struct Coord {
     /// @param other the other coordinate to add
     /// @returns the sum of the two vectors
     Coord operator + (const Coord & other) const;
+
+    /// Multiply by scalar
+    /// @param scalar the scalar to multiply by
+    /// @returns the product of the vector with the scalar
+    Coord operator * (int scalar) const;
 };
 
 

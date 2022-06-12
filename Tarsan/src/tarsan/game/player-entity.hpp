@@ -70,6 +70,10 @@ private:
     /// @param map the map to delete in
     void _build(int key, Map &map);
 
+    /// Shoot a liana upwards towards the nearest stone block
+    /// @param map the map to shoot in
+    void _shootLiana(Map &map);
+
     char _getChar(WINDOW * window) const override;
 
 public:

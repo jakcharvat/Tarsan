@@ -98,6 +98,18 @@ PlayerEntity::_build(int key, Map &map) {
 }
 
 
+void
+PlayerEntity::_shootLiana(Map &map) {
+    int mask = raycastMask(RaycastLayer::STONE);
+    int distance = map.raycast(position, Direction::UP, mask);
+
+    if (distance > 0) {
+        Coord location = position + directionStep(Direction::UP) * distance;
+        map.setEntity(std::make_unique<LianaEntity>(location));
+    }
+}
+
+
 char
 PlayerEntity::_getChar(WINDOW * window) const {
     const int colour = _tookDamage ? COLOR_RED : COLOR_GREEN;
@@ -127,6 +139,8 @@ PlayerEntity::handleEvent(int key, Map &map) {
         } else {
             _build(key, map);
         }
+    } else if (key == 'l') {
+        _shootLiana(map);
     }
 }
 
