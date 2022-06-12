@@ -18,6 +18,9 @@
 #include "player-entity.hpp"
 
 
+///
+/// A class representing the map used for a single game
+/// 
 class Map: public Drawable {
 public:
     using EntityPtr = std::unique_ptr<Entity>;

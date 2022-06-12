@@ -10,6 +10,9 @@
 #include "map-loader.hpp"
 
 
+///
+/// A class that implements random generation of a map from a specific config.
+///
 class MapGenerator: public MapLoader {
     EntityMap getMap() const override;
 };

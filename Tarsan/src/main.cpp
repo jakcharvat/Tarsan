@@ -15,6 +15,37 @@
 #include "tarsan/game/map-generator.hpp"
 
 
+/// @mainpage Tarsan
+///
+/// @section intro Introduction
+/// This is a very simple sandbox game. Here you play as a small hero trapped in a box in which there are only liannas and lava. You can build and destroy stones, and your goal is to stay alive for as long as you can.
+///
+/// @section install Installation
+/// @subsection compilation Compilation
+/// Download the source, then in your terminal of choice with bash installed, run
+/// ```bash
+/// make compile
+/// ```
+///
+/// @subsection running Running
+/// If you have the binary built from the compilation step then you can simply open it and enjoy. Otherwise it is possible to directly build and launch the binary by running
+/// ```bash
+/// make run
+/// ```
+///
+/// @section controls Controls
+/// To move around the world use the arrow keys. Building is done using the following keys for the blocks around the player (assume P is the player):
+/// ```txt
+/// q w e
+/// a P d
+/// z x c
+/// ```
+/// The same keys, only with shift, are used to excavate the blocks at those same positions. Use l to shoot a liana to the sky.
+///
+/// @section config Config
+/// It is possible to customise the behaviour of the map generator. To do so, edit the `generator.config` file in the `examples` directory. The format, as well as supported keys, are described in that file.
+
+
 int main() {
     srandom(static_cast<unsigned int>(time(nullptr)));
 

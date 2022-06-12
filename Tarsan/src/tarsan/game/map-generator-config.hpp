@@ -10,6 +10,9 @@
 #include <string>
 
 
+/// A struct representing the configuration of the map generator.
+///
+/// This config has its own sensible defaults, but it can be overriden from a configuration file.
 struct MapGeneratorConfig {
     ///
     /// The width of the map
