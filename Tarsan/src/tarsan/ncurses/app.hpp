@@ -34,7 +34,7 @@ private:
     ///
     /// The duration between key polls
     ///
-    static constexpr std::chrono::milliseconds POLL_DURATION { 100 };
+    static constexpr std::chrono::milliseconds POLL_DURATION { 50 };
 
     ///
     /// The duration between game updates

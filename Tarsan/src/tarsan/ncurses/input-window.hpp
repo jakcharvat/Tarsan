@@ -9,11 +9,18 @@
 
 #include "window.hpp"
 
+#include <queue>
+
 
 /// A window that listens for user input
 ///
 /// This is handled in a separate window to avoid ncurses window refreshes on getch() calls
 class InputWindow: private Window {
+    ///
+    /// The keys waiting to be processed by the game
+    ///
+    std::queue<int> _buffer;
+
 public:
     ///
     /// Create an empty window
@@ -27,4 +34,12 @@ public:
     /// Get a character
     /// @returns a character received from ncurses
     int getchar();
+
+    /// Store a character to be available during the next update
+    /// @param c the char to store
+    void buffer(int c);
+
+    /// Pull the first character waiting for a game update
+    /// @returns the first element in the queue
+    int poll();
 };

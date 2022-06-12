@@ -99,4 +99,8 @@ public:
     /// @param coord the position to look at
     /// @returns a pointer to a constant entity
     const Entity * at(Coord coord) const;
+
+    /// Handle a registered key event
+    /// @param key the key corresponding to the event
+    void handleEvent(int key);
 };

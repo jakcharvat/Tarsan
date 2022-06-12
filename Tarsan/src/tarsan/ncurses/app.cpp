@@ -23,11 +23,16 @@
 
 void
 App::update() {
+    int key;
+    while ((key = _input->poll()) != -1) {
+        _map->handleEvent(key);
+    }
     _map->update();
 }
 
 
 App::App() {
+    set_escdelay(20);
     // Setup inspired by
     // https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/amp/
     setlocale(LC_ALL, "");
@@ -36,12 +41,6 @@ App::App() {
     }
 
     noecho();
-
-    // Make sure non-blocking mode is set on the keyboard
-//    int val = fcntl(STDIN_FILENO, F_GETFL, 0);
-//    if (val != -1) {
-//        fcntl(STDIN_FILENO, F_SETFL, val | O_NONBLOCK);
-//    }
 
     int width, height;
     getmaxyx(stdscr, height, width);
@@ -85,7 +84,8 @@ App::run() {
         out() << "Got char " << c << std::endl;
 
         if (CharHelpers::isEscape(c)) break;
-        if (c == 'q') break;
+//        if (c != -1) _input->buffer(c);
+        if (c != -1) _map->handleEvent(c);
 
         if (_nextUpdate <= std::chrono::steady_clock::now()) {
             update();

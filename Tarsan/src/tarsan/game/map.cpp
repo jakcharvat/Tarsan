@@ -169,3 +169,9 @@ const Entity *
 Map::at(Coord coord) const {
     return _map[coord.y][coord.x].get();
 }
+
+
+void
+Map::handleEvent(int key) {
+    _player.handleEvent(key, *this);
+}
