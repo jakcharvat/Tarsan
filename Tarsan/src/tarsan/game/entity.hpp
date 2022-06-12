@@ -10,6 +10,7 @@
 #include <ncurses.h>
 
 #include "../helpers/direction.hpp"
+#include "../helpers/raycast-layer.hpp"
 
 
 class Map;
@@ -41,9 +42,20 @@ protected:
     bool _isOnGround(Map &map) const;
 
 public:
+    ///
+    /// The current position of the entity
+    ///
+    Coord position;
+
+    ///
+    /// The raycast layer of this entity
+    ///
+    const RaycastLayer raycastLayer;
+
     /// Construct an entity at the given position
     /// @param position the position to construct at
-    Entity(Coord position);
+    /// @param raycastLayer the raycast layer of this entity
+    Entity(Coord position, RaycastLayer raycastLayer);
 
     /// Performa a single frame update of this entity
     ///
@@ -52,12 +64,15 @@ public:
     
     /// Draw this entity to the given window
     /// @param window the window to draw to
-    void draw (WINDOW * window) const;
+    void draw(WINDOW * window) const;
 
-    ///
-    /// The current position of the entity
-    ///
-    Coord position;
+    /// Check whether this entity is a lava entity
+    /// @returns true if this is a lava entity
+    bool isLava() const;
+
+    /// Check the lava level at this entity
+    /// @returns the lava level of this entity, 0 if there is no lava
+    virtual short getLavaLevel() const;
 
     ///
     /// Virtual destructor for abstract class

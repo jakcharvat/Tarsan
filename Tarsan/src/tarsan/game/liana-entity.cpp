@@ -20,7 +20,7 @@ LianaEntity::_getChar(WINDOW * window) const {
 
 
 LianaEntity::LianaEntity(Coord position):
-Entity(position) { }
+Entity(std::move(position), RaycastLayer::LIANA) { }
 
 
 void
@@ -31,7 +31,11 @@ LianaEntity::update(Map &map) {
     }
 
     if (_isEmpty(map, Direction::DOWN)) {
-        // Empty below, so grow downwards
-        map.setEntity(std::make_unique<LianaEntity>(position + directionStep(Direction::DOWN)));
+        // Check for lava
+        Coord below = position + directionStep(Direction::DOWN);
+        if (!map.at(below) || !map.at(below)->isLava()) {
+            // Empty below, so grow downwards
+            map.setEntity(std::make_unique<LianaEntity>(below));
+        }
     }
 }

@@ -26,21 +26,21 @@ PlayerEntity::_performFall(int distance) {
 char
 PlayerEntity::_getChar(WINDOW * window) const {
     const int colour = _tookDamage ? COLOR_RED : COLOR_GREEN;
-    const int bold = _tookDamage ? A_BOLD | A_REVERSE : 0;
+    const int bold = A_BOLD | A_REVERSE;
     wattrset(window, Color::pair(colour, COLOR_DEFAULT) | bold);
     return '>';
 }
 
 
 PlayerEntity::PlayerEntity(Coord position):
-Entity(position) { }
+Entity(std::move(position), RaycastLayer::EMPTY) { }
 
 
 void
 PlayerEntity::update(Map &map) {
     _tookDamage = false;
 
-    int free = map.raycast(position, Direction::DOWN, std::max(0, _vertVelocity + 1));
+    int free = map.raycast(position, Direction::DOWN, dangerRaycastMask(RaycastLayer::STONE), std::max(0, _vertVelocity + 1));
 
     if (free > 0) {
         if (free > _vertVelocity) {

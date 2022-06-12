@@ -82,9 +82,10 @@ public:
     /// Fire a raycast in the specified direction
     /// @param origin the point to fire from
     /// @param direction the direction to fire in
+    /// @param mask the layers to include in the search
     /// @param limit the maximum number of steps. -1 for an unlimited ray
     /// @returns the number of free blocks (not stones) in the direction of the raycast
-    int raycast(Coord origin, Direction direction, int limit) const;
+    int raycast(Coord origin, Direction direction, int mask = dangerRaycastMask(RaycastLayer::STONE), int limit = -1) const;
 
     /// Register an entity for deletion in the next render pass
     /// @param coordinate the coordinate of the entity that should be deleted
@@ -93,4 +94,9 @@ public:
     /// Set the specified entity at the given coordinate
     /// @param pointer a pointer to the new entity
     void setEntity(EntityPtr pointer);
+
+    /// Get the entity at a specified position
+    /// @param coord the position to look at
+    /// @returns a pointer to a constant entity
+    const Entity * at(Coord coord) const;
 };

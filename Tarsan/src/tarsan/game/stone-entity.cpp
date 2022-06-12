@@ -18,4 +18,4 @@ StoneEntity::_getChar(WINDOW * window) const {
 
 
 StoneEntity::StoneEntity(Coord position):
-Entity(position) { }
+Entity(std::move(position), RaycastLayer::STONE) { }

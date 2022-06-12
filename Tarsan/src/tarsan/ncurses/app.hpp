@@ -64,7 +64,7 @@ private:
     ///
     /// The window of the current game
     ///
-    std::unique_ptr<Window> _window = std::make_unique<Window>(stdscr, _map, Coord { 0, 0 }, Coord { 20, 20 }, false);
+    std::unique_ptr<Window> _window = std::make_unique<Window>(stdscr, _map, Coord { 0, 0 }, Coord { 40, 20 }, false);
 
     ///
     /// Update the game

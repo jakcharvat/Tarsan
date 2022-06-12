@@ -16,6 +16,7 @@
 		DE1FEA212855E11A0016D98D /* drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA1F2855E11A0016D98D /* drawable.cpp */; };
 		DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */; };
 		DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD32855FBB100DA94A6 /* direction.cpp */; };
+		DE3FDCDA285616B700DA94A6 /* raycast-layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD8285616B700DA94A6 /* raycast-layer.cpp */; };
 		DEFD16D2285581CB00762D44 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD168F285581CB00762D44 /* color.cpp */; };
 		DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD1690285581CB00762D44 /* char-helpers.cpp */; };
 		DEFD16DA285581CB00762D44 /* out.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16A8285581CB00762D44 /* out.cpp */; };
@@ -60,6 +61,8 @@
 		DE3FDCD02855ED4D00DA94A6 /* input-window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "input-window.hpp"; sourceTree = "<group>"; };
 		DE3FDCD22855FB7E00DA94A6 /* direction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = direction.hpp; sourceTree = "<group>"; };
 		DE3FDCD32855FBB100DA94A6 /* direction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = direction.cpp; sourceTree = "<group>"; };
+		DE3FDCD8285616B700DA94A6 /* raycast-layer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "raycast-layer.cpp"; sourceTree = "<group>"; };
+		DE3FDCD9285616B700DA94A6 /* raycast-layer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "raycast-layer.hpp"; sourceTree = "<group>"; };
 		DEFD13E5285581B600762D44 /* Tarsan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tarsan; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFD165C285581CA00762D44 /* Tarsan.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Tarsan.entitlements; sourceTree = "<group>"; };
 		DEFD165F285581CB00762D44 /* tarsan-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarsan-logo.png"; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				DEFD16ED2855985C00762D44 /* coord.cpp */,
 				DE3FDCD22855FB7E00DA94A6 /* direction.hpp */,
 				DE3FDCD32855FBB100DA94A6 /* direction.cpp */,
+				DE3FDCD9285616B700DA94A6 /* raycast-layer.hpp */,
+				DE3FDCD8285616B700DA94A6 /* raycast-layer.cpp */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -296,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE3FDCDA285616B700DA94A6 /* raycast-layer.cpp in Sources */,
 				DE1FEA0E2855CE4A0016D98D /* liana-entity.cpp in Sources */,
 				DEFD16EF2855985C00762D44 /* coord.cpp in Sources */,
 				DEFD16EB2855983B00762D44 /* entity.cpp in Sources */,

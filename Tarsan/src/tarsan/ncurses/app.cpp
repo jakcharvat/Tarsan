@@ -30,13 +30,11 @@ App::update() {
 App::App() {
     // Setup inspired by
     // https://linuxjedi.co.uk/2020/04/29/event-loops-and-ncurses/amp/
-    set_escdelay(10);
     setlocale(LC_ALL, "");
     if (!initscr()) {
         throw FatalError("Cannot init ncurses window");
     }
 
-    keypad(stdscr, true);
     noecho();
 
     // Make sure non-blocking mode is set on the keyboard
