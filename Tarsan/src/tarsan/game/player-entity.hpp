@@ -13,6 +13,9 @@
 /// A class storing a player entity
 /// 
 class PlayerEntity: public Entity {
+public:
+    static constexpr int MAX_HP = 100;
+
 private:
     ///
     /// The two possible directions a player could face
@@ -30,6 +33,11 @@ private:
     /// The current vertical velocity of the player
     ///
     int _vertVelocity = 0;
+
+    ///
+    /// Current player hp
+    ///
+    int _hp = MAX_HP;
 
     ///
     /// Whether the player is currently jumping
@@ -74,6 +82,10 @@ private:
     /// @param map the map to shoot in
     void _shootLiana(Map &map);
 
+    /// Deal damage to the player
+    /// @param hp the amount of hp to take
+    void _damage(int hp);
+
     char _getChar(WINDOW * window) const override;
 
 public:
@@ -85,6 +97,10 @@ public:
     /// @param key the key that was registered
     /// @param map the containing map
     void handleEvent(int key, Map &map);
+
+    /// Get this player's remaining HP
+    /// @returns the remaining HP of this player
+    int getHp() const;
 
     void update(Map &map) override;
 };

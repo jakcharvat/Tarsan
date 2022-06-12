@@ -64,7 +64,7 @@ private:
     ///
     /// The window of the current game
     ///
-    std::unique_ptr<Window> _window = std::make_unique<Window>(stdscr, _map, Coord { 0, 0 }, Coord { 40, 20 }, false);
+    std::unique_ptr<Window> _window = nullptr;
 
     ///
     /// Update the game
@@ -83,10 +83,9 @@ public:
     App();
 
 
-    ///
     /// Start actually running the app
-    ///
-    void run();
+    /// @returns true if another game should be started
+    bool run();
 
 
     ///

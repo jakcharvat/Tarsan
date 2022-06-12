@@ -7,6 +7,8 @@
 
 #include "map.hpp"
 
+#include "../ncurses/color.hpp"
+
 
 Map::EntityMap
 Map::_generateRandomMap() {
@@ -110,6 +112,18 @@ Map::draw(WINDOW *window) {
     }
 
     _player.draw(window);
+
+    int hp = _player.getHp();
+    int lostHp = PlayerEntity::MAX_HP - hp;
+    int width = size().x;
+    int lostWidth = width * lostHp / PlayerEntity::MAX_HP;
+    int barWidth = width - lostWidth;
+
+    wmove(window, size().y - 1, 0);
+    wattrset(window, Color::pair(COLOR_RED, COLOR_RED));
+    wprintw(window, "%*s", barWidth, "");
+    wattrset(window, Color::pair(COLOR_DEFAULT, COLOR_DEFAULT));
+    wprintw(window, "%*s", lostWidth, "");
 }
 
 
@@ -174,4 +188,15 @@ Map::at(Coord coord) const {
 void
 Map::handleEvent(int key) {
     _player.handleEvent(key, *this);
+}
+
+
+Coord
+Map::size() const {
+    if (_map.empty()) return { 0, 0 };
+
+    return {
+        static_cast<int>(_map[0].size()),
+        static_cast<int>(_map.size() + 1),
+    };
 }

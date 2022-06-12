@@ -18,12 +18,12 @@ struct Coord {
     ///
     /// The x position
     ///
-    int x;
+    int x = 0;
 
     ///
     /// The y position
     ///
-    int y;
+    int y = 0;
 
     /// Create a coordinate
     /// @param x the x coordinate

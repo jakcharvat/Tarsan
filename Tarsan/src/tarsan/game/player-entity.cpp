@@ -10,6 +10,7 @@
 #include "../ncurses/char-helpers.hpp"
 #include "../ncurses/color.hpp"
 #include "../logging/out.hpp"
+#include "../logging/menu-error.hpp"
 
 #include "map.hpp"
 
@@ -17,10 +18,11 @@
 void
 PlayerEntity::_performFall(int distance) {
     position.y += distance;
-    _vertVelocity = 0;
-
-    //TODO: Take damage
+    if (_vertVelocity > 2) {
+        _damage(_vertVelocity * _vertVelocity);
+    }
     _tookDamage = true;
+    _vertVelocity = 0;
 }
 
 
@@ -110,6 +112,13 @@ PlayerEntity::_shootLiana(Map &map) {
 }
 
 
+void
+PlayerEntity::_damage(int hp) {
+    _hp = std::max(_hp - hp, 0);
+    if (_hp == 0) throw MenuError("You died");
+}
+
+
 char
 PlayerEntity::_getChar(WINDOW * window) const {
     const int colour = _tookDamage ? COLOR_RED : COLOR_GREEN;
@@ -145,6 +154,12 @@ PlayerEntity::handleEvent(int key, Map &map) {
 }
 
 
+int
+PlayerEntity::getHp() const {
+    return _hp;
+}
+
+
 void
 PlayerEntity::update(Map &map) {
     _tookDamage = false;
@@ -159,6 +174,8 @@ PlayerEntity::update(Map &map) {
             _vertVelocity += 1;
         } else {
             _performFall(free);
+
+// No clue how this got here, but it turned out to be a nice way to simulate a sorta shockwave effect when the player falls and lands, so might put it back in later
 //            map.deleteEntity(position + Coord { 0, 2 });
         }
     }

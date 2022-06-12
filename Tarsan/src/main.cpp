@@ -16,13 +16,15 @@
 int main() {
     srandom(static_cast<unsigned int>(time(nullptr)));
 
-    try {
-        App app;
-        app.run();
-    } catch (const FatalError & error) {
-        std::cerr << "Fatal error: " << error.what() << std::endl;
-        std::cerr << "The app cannot continue, sorry :(" << std::endl;
-        return 2;
+    while (true) {
+        try {
+            App app;
+            if (!app.run()) break;
+        } catch (const FatalError & error) {
+            std::cerr << "Fatal error: " << error.what() << std::endl;
+            std::cerr << "The app cannot continue, sorry :(" << std::endl;
+            return 2;
+        }
     }
 }
 

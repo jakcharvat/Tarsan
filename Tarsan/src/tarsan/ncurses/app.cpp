@@ -61,13 +61,22 @@ App::App() {
 }
 
 
-void
+bool
 App::run() {
     _nextPoll = std::chrono::steady_clock::now();
     _nextUpdate = std::chrono::steady_clock::now();
 
     try {
         _input->setup();
+
+        Coord available { 0, 0 }; getmaxyx(stdscr, available.y, available.x);
+        Coord mapSize = _map->size();
+
+        int paddingLeft = (available.x - mapSize.x) / 2;
+        int paddingTop = (available.y - mapSize.y) / 2;
+
+
+        _window = std::make_unique<Window>(stdscr, _map, Coord { paddingLeft, paddingTop }, mapSize);
         _window->setup();
     } catch (const MenuError & e) {
         throw FatalError("Window setup error");
@@ -96,6 +105,8 @@ App::run() {
         _nextPoll = nextPoll;
         std::this_thread::sleep_until(nextPoll);
     }
+
+    return true;
 }
 
 

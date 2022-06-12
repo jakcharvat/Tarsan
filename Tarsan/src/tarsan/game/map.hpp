@@ -103,4 +103,8 @@ public:
     /// Handle a registered key event
     /// @param key the key corresponding to the event
     void handleEvent(int key);
+
+    /// Get the size of the map
+    /// @returns the size of the map
+    Coord size() const;
 };
