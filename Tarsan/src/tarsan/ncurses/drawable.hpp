@@ -17,7 +17,7 @@ class Drawable {
 public:
     /// Draw the element to the given ncurses window.
     /// @param window the window to draw to
-    virtual void draw(WINDOW * window) const = 0;
+    virtual void draw(WINDOW * window) = 0;
 
     ///
     /// Virtual destructor needed for base class

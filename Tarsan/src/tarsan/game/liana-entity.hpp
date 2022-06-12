@@ -20,4 +20,6 @@ public:
     /// Construct a liana entity at the given position
     /// @param position the position to construct at
     LianaEntity(Coord position);
+
+    void update(Map &map) override;
 };

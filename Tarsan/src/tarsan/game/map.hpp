@@ -8,6 +8,8 @@
 #pragma once
 
 #include <memory>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 #include "../ncurses/drawable.hpp"
@@ -40,27 +42,55 @@ private:
     ///
     PlayerEntity _player {{ 1, 1 }};
 
+    ///
+    /// A set of the positions of entities that should be deleted before the next render pass
+    ///
+    std::unordered_set<Coord> _toDelete;
+
+    ///
+    /// A map of entities that should be inserted before the next render pass
+    ///
+    std::unordered_map<Coord, EntityPtr> _toInsert;
+
+    ///
+    /// Delete all entities in the `_toDelete` queue
+    ///
+    void _deleteAllPending();
+
+    ///
+    /// Insert all entities waiting for insertion
+    ///
+    void _insertAllPending();
+
+    /// Check whether the entity at the specified position is modifiable
+    ///
+    /// All entities are modifiable except border entities
+    /// @param position the position to check
+    /// @return true if the entity is modifiable
+    bool _isModifiable(Coord position) const;
+
 public:
     /// Draw the map to the given window
     /// @param window the window to draw to
-    void draw(WINDOW * window) const;
+    void draw(WINDOW * window);
 
     ///
     /// Perform a single frame update
     /// 
     void update();
 
-    ///
-    /// A direction a raycast can travel
-    ///
-    enum class RaycastDirection {
-        UP, DOWN
-    };
-
     /// Fire a raycast in the specified direction
     /// @param origin the point to fire from
     /// @param direction the direction to fire in
     /// @param limit the maximum number of steps. -1 for an unlimited ray
     /// @returns the number of free blocks (not stones) in the direction of the raycast
-    int raycast(Coord origin, RaycastDirection direction, int limit) const;
+    int raycast(Coord origin, Direction direction, int limit) const;
+
+    /// Register an entity for deletion in the next render pass
+    /// @param coordinate the coordinate of the entity that should be deleted
+    void deleteEntity(Coord coordinate);
+
+    /// Set the specified entity at the given coordinate
+    /// @param pointer a pointer to the new entity
+    void setEntity(EntityPtr pointer);
 };

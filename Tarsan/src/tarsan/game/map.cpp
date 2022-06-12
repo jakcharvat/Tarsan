@@ -60,7 +60,42 @@ Map::_generateRandomMap() {
 
 
 void
-Map::draw(WINDOW *window) const {
+Map::_deleteAllPending() {
+    for (auto coord : _toDelete) {
+        _map[coord.y][coord.x] = nullptr;
+    }
+
+    _toDelete.clear();
+}
+
+
+void
+Map::_insertAllPending() {
+    for (auto & el : _toInsert) {
+        Coord coord = el.first;
+        if (_map[coord.y][coord.x]) return;
+
+        _map[coord.y][coord.x] = std::move(el.second);
+    }
+
+    _toInsert.clear();
+}
+
+
+bool
+Map::_isModifiable(Coord position) const {
+    if (position.x < 1 || position.y < 1) return false;
+    if (static_cast<size_t>(position.y) >= _map.size() - 1) return false;
+    if (static_cast<size_t>(position.x) >= _map[position.y].size() - 1) return false;
+    return true;
+}
+
+
+void
+Map::draw(WINDOW *window) {
+    _deleteAllPending();
+    _insertAllPending();
+
     for (size_t i = 0; i < _map.size(); ++i) {
         const EntityRow & row = _map[i];
         wmove(window, static_cast<int>(i), 0);
@@ -93,17 +128,35 @@ Map::update() {
 }
 
 
-int Map::raycast(Coord origin, RaycastDirection direction, int limit) const {
-    const int step = direction == RaycastDirection::DOWN ? 1 : -1;
+int Map::raycast(Coord origin, Direction direction, int limit) const {
+    const Coord step = directionStep(direction);
     int ray = 0;
 
-    origin.y += step;
-    while (_map[origin.y][origin.x] == nullptr) {
+    origin = origin + step;
+    while (_isModifiable(origin) && _map[origin.y][origin.x] == nullptr) {
         if (limit != -1 && ray >= limit) break;
 
         ray += 1;
-        origin.y += step;
+        origin = origin + step;
     }
 
     return ray;
+}
+
+
+void
+Map::deleteEntity(Coord coordinate) {
+    if (!_isModifiable(coordinate)) return;
+    _toDelete.insert(coordinate);
+}
+
+
+void
+Map::setEntity(EntityPtr pointer) {
+    if (!pointer) return;
+    Coord coord = pointer->position;
+    if (!_isModifiable(coord)) return;
+
+    if (_toInsert.count(coord)) return;
+    _toInsert[coord] = std::move(pointer);
 }

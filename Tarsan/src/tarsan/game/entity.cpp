@@ -21,8 +21,14 @@ Entity::update(Map &) { }
 
 
 bool
+Entity::_isEmpty(Map &map, Direction direction) const {
+    return map.raycast(position, direction, 1) == 1;
+}
+
+
+bool
 Entity::_isOnGround(Map &map) const {
-    return map.raycast(position, Map::RaycastDirection::DOWN, 1) == 0;
+    return !_isEmpty(map, Direction::DOWN);
 }
 
 

@@ -15,6 +15,7 @@
 		DE1FEA1E2855DD760016D98D /* pause-error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA1C2855DD760016D98D /* pause-error.cpp */; };
 		DE1FEA212855E11A0016D98D /* drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA1F2855E11A0016D98D /* drawable.cpp */; };
 		DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */; };
+		DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD32855FBB100DA94A6 /* direction.cpp */; };
 		DEFD16D2285581CB00762D44 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD168F285581CB00762D44 /* color.cpp */; };
 		DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD1690285581CB00762D44 /* char-helpers.cpp */; };
 		DEFD16DA285581CB00762D44 /* out.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16A8285581CB00762D44 /* out.cpp */; };
@@ -57,6 +58,8 @@
 		DE1FEA202855E11A0016D98D /* drawable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = drawable.hpp; sourceTree = "<group>"; };
 		DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "input-window.cpp"; sourceTree = "<group>"; };
 		DE3FDCD02855ED4D00DA94A6 /* input-window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "input-window.hpp"; sourceTree = "<group>"; };
+		DE3FDCD22855FB7E00DA94A6 /* direction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = direction.hpp; sourceTree = "<group>"; };
+		DE3FDCD32855FBB100DA94A6 /* direction.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = direction.cpp; sourceTree = "<group>"; };
 		DEFD13E5285581B600762D44 /* Tarsan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tarsan; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFD165C285581CA00762D44 /* Tarsan.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Tarsan.entitlements; sourceTree = "<group>"; };
 		DEFD165F285581CB00762D44 /* tarsan-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarsan-logo.png"; sourceTree = "<group>"; };
@@ -230,6 +233,8 @@
 			children = (
 				DEFD16EE2855985C00762D44 /* coord.hpp */,
 				DEFD16ED2855985C00762D44 /* coord.cpp */,
+				DE3FDCD22855FB7E00DA94A6 /* direction.hpp */,
+				DE3FDCD32855FBB100DA94A6 /* direction.cpp */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -306,6 +311,7 @@
 				DE1FEA112855CFB20016D98D /* lava-entity.cpp in Sources */,
 				DE1FEA1E2855DD760016D98D /* pause-error.cpp in Sources */,
 				DE1FEA182855DAAD0016D98D /* menu-error.cpp in Sources */,
+				DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */,
 				DE1FEA152855D0970016D98D /* map.cpp in Sources */,
 				DEFD16DA285581CB00762D44 /* out.cpp in Sources */,
 				DEFD16E0285581CB00762D44 /* main.cpp in Sources */,

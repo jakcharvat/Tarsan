@@ -9,6 +9,8 @@
 
 #include "../ncurses/color.hpp"
 
+#include "map.hpp"
+
 
 char
 LianaEntity::_getChar(WINDOW * window) const {
@@ -19,3 +21,17 @@ LianaEntity::_getChar(WINDOW * window) const {
 
 LianaEntity::LianaEntity(Coord position):
 Entity(position) { }
+
+
+void
+LianaEntity::update(Map &map) {
+    if (_isEmpty(map, Direction::UP)) {
+        // Empty above, so destroy this liana block
+        map.deleteEntity(position);
+    }
+
+    if (_isEmpty(map, Direction::DOWN)) {
+        // Empty below, so grow downwards
+        map.setEntity(std::make_unique<LianaEntity>(position + directionStep(Direction::DOWN)));
+    }
+}

@@ -9,7 +9,7 @@
 
 #include <ncurses.h>
 
-#include "../helpers/coord.hpp"
+#include "../helpers/direction.hpp"
 
 
 class Map;
@@ -29,6 +29,12 @@ private:
     virtual char _getChar(WINDOW *window) const = 0;
 
 protected:
+    /// Check if the neighbouring block in the specified direction is empty
+    /// @param map the map to use for the check
+    /// @param direction the direction to look in
+    /// @returns true is the block is empty
+    bool _isEmpty(Map &map, Direction direction) const;
+
     /// Check if the entity is standing on the ground
     /// @param map the map to use for the check
     /// @returns true if the entity is on the ground

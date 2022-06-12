@@ -7,6 +7,8 @@
 
 #pragma once
 
+#include <functional>
+
 
 ///
 /// A structure representing a 2D coordinate
@@ -42,3 +44,17 @@ struct Coord {
     /// @returns the sum of the two vectors
     Coord operator + (const Coord & other) const;
 };
+
+
+namespace std {
+template<>
+struct hash<Coord> {
+    /// Hash a coordinate
+    ///
+    /// Since my coordinates are ints, on most systems this hasing function will work, as it will simply map the two coordinates behind each other in an integer type that is at least twice larger than int. This requires a system where `size_t` truly is at least twice larger than int
+    size_t operator () (const Coord & coord) const {
+        const int bits = CHAR_BIT * sizeof(int);
+        return static_cast<size_t>(coord.x) << bits | coord.y;
+    }
+};
+}

@@ -40,7 +40,7 @@ void
 PlayerEntity::update(Map &map) {
     _tookDamage = false;
 
-    int free = map.raycast(position, Map::RaycastDirection::DOWN, std::max(0, _vertVelocity + 1));
+    int free = map.raycast(position, Direction::DOWN, std::max(0, _vertVelocity + 1));
 
     if (free > 0) {
         if (free > _vertVelocity) {
@@ -48,6 +48,7 @@ PlayerEntity::update(Map &map) {
             _vertVelocity += 1;
         } else {
             _performFall(free);
+            map.deleteEntity(position + Coord{ 0, 2 });
         }
     }
 }
