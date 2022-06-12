@@ -9,6 +9,8 @@
 
 #include <algorithm>
 
+#include "../logging/fatal-error.hpp"
+
 
 Color
 Color::_instance;
@@ -25,7 +27,9 @@ Color::_get(short foreground, short background) {
     short & stored = _pairs[index];
 
     if (stored == -1) {
-        init_pair(_nextIndex, foreground, background);
+        if (init_pair(_nextIndex, foreground, background)) {
+            throw FatalError("Cannot init colour pair");
+        }
         stored = _nextIndex++;
     }
 

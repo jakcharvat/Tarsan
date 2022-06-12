@@ -15,4 +15,9 @@
 ///
 class LavaEntity: public Entity {
     char getChar() const override;
+
+public:
+    /// Construct a lava entity at the given position
+    /// @param position the position to construct at
+    LavaEntity(Coord position);
 };

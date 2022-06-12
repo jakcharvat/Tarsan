@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DE1FEA0E2855CE4A0016D98D /* liana-entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA0C2855CE4A0016D98D /* liana-entity.cpp */; };
 		DE1FEA112855CFB20016D98D /* lava-entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA0F2855CFB20016D98D /* lava-entity.cpp */; };
+		DE1FEA152855D0970016D98D /* map.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA132855D0970016D98D /* map.cpp */; };
 		DEFD16D2285581CB00762D44 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD168F285581CB00762D44 /* color.cpp */; };
 		DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD1690285581CB00762D44 /* char-helpers.cpp */; };
 		DEFD16DA285581CB00762D44 /* out.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16A8285581CB00762D44 /* out.cpp */; };
@@ -39,6 +40,8 @@
 		DE1FEA0D2855CE4A0016D98D /* liana-entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "liana-entity.hpp"; sourceTree = "<group>"; };
 		DE1FEA0F2855CFB20016D98D /* lava-entity.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "lava-entity.cpp"; sourceTree = "<group>"; };
 		DE1FEA102855CFB20016D98D /* lava-entity.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "lava-entity.hpp"; sourceTree = "<group>"; };
+		DE1FEA132855D0970016D98D /* map.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = map.cpp; sourceTree = "<group>"; };
+		DE1FEA142855D0970016D98D /* map.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = map.hpp; sourceTree = "<group>"; };
 		DEFD13E5285581B600762D44 /* Tarsan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tarsan; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFD165C285581CA00762D44 /* Tarsan.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Tarsan.entitlements; sourceTree = "<group>"; };
 		DEFD165F285581CB00762D44 /* tarsan-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarsan-logo.png"; sourceTree = "<group>"; };
@@ -191,6 +194,8 @@
 				DE1FEA0C2855CE4A0016D98D /* liana-entity.cpp */,
 				DE1FEA102855CFB20016D98D /* lava-entity.hpp */,
 				DE1FEA0F2855CFB20016D98D /* lava-entity.cpp */,
+				DE1FEA142855D0970016D98D /* map.hpp */,
+				DE1FEA132855D0970016D98D /* map.cpp */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 				DEFD16F228559C2B00762D44 /* stone-entity.cpp in Sources */,
 				DEFD16F528559CC000762D44 /* player-entity.cpp in Sources */,
 				DE1FEA112855CFB20016D98D /* lava-entity.cpp in Sources */,
+				DE1FEA152855D0970016D98D /* map.cpp in Sources */,
 				DEFD16DA285581CB00762D44 /* out.cpp in Sources */,
 				DEFD16E0285581CB00762D44 /* main.cpp in Sources */,
 				DEFD16E4285582B700762D44 /* fatal-error.cpp in Sources */,

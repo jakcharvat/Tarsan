@@ -38,10 +38,10 @@ App::App() {
     noecho();
 
     // Make sure non-blocking mode is set on the keyboard
-    int val = fcntl(STDIN_FILENO, F_GETFL, 0);
-    if (val != -1) {
-        fcntl(STDIN_FILENO, F_SETFL, val | O_NONBLOCK);
-    }
+//    int val = fcntl(STDIN_FILENO, F_GETFL, 0);
+//    if (val != -1) {
+//        fcntl(STDIN_FILENO, F_SETFL, val | O_NONBLOCK);
+//    }
 
     int width, height;
     getmaxyx(stdscr, height, width);
@@ -51,19 +51,25 @@ App::App() {
         endwin();
         throw FatalError("Screen to small");
     }
+
+    if (use_default_colors() == ERR || start_color() == ERR) {
+        curs_set(1);
+        endwin();
+        throw FatalError("Terminal doesn't support colour output");
+    }
+
+    curs_set(0);
 }
 
 
 void
 App::run() {
-    int i = 0;
     _nextPoll = std::chrono::steady_clock::now();
     _nextUpdate = std::chrono::steady_clock::now();
 
-    while (true) {
-        mvprintw(1, 1, "%d", i++);
-        refresh();
+    _map->draw(stdscr);
 
+    while (true) {
         int c = getch();
         out() << c << std::endl;
 

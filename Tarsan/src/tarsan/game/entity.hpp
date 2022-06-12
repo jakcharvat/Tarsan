@@ -25,6 +25,10 @@ private:
     virtual char getChar() const = 0;
 
 public:
+    /// Construct an entity at the given position
+    /// @param position the position to construct at
+    Entity(Coord position);
+    
     /// Draw this entity to the given window
     /// @param window the window to draw to
     void draw (WINDOW * window) const;

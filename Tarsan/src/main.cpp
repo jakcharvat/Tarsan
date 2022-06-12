@@ -14,6 +14,8 @@
 
 
 int main() {
+    srandom(static_cast<unsigned int>(time(nullptr)));
+
     try {
         App app;
         app.run();

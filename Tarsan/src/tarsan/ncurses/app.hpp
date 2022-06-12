@@ -11,6 +11,8 @@
 #include <ncurses.h>
 #include <queue>
 
+#include "../game/map.hpp"
+
 
 ///
 /// The main driver of the app
@@ -45,6 +47,11 @@ private:
     /// The time of next update
     ///
     std::chrono::steady_clock::time_point _nextUpdate;
+
+    ///
+    /// The map of the current game
+    ///
+    std::unique_ptr<Map> _map = std::make_unique<Map>();
 
     ///
     /// Update the game

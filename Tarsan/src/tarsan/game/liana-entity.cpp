@@ -10,9 +10,6 @@
 #include "../ncurses/color.hpp"
 
 
-
-
-
 char
 LianaEntity::getChar() const {
     attrset(Color::pair(COLOR_GREEN, COLOR_DEFAULT));
@@ -20,4 +17,5 @@ LianaEntity::getChar() const {
 }
 
 
-
+LianaEntity::LianaEntity(Coord position):
+Entity(position) { }

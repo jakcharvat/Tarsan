@@ -15,3 +15,7 @@ StoneEntity::getChar() const {
     attrset(Color::pair(COLOR_MAGENTA, COLOR_DEFAULT));
     return '*';
 }
+
+
+StoneEntity::StoneEntity(Coord position):
+Entity(position) { }

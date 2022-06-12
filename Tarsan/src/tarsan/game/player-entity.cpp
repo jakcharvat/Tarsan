@@ -15,3 +15,7 @@ PlayerEntity::getChar() const {
     attrset(Color::pair(COLOR_GREEN, COLOR_DEFAULT));
     return '>';
 }
+
+
+PlayerEntity::PlayerEntity(Coord position):
+Entity(position) { }

@@ -15,3 +15,7 @@ LavaEntity::getChar() const {
     attrset(Color::pair(COLOR_RED, COLOR_DEFAULT));
     return '#';
 };
+
+
+LavaEntity::LavaEntity(Coord position):
+Entity(position) { }

@@ -13,4 +13,9 @@
 /// 
 class PlayerEntity: public Entity {
     char getChar() const override;
+
+public:
+    /// Construct a player entity at the given position
+    /// @param position the position to construct at
+    PlayerEntity(Coord position);
 };
