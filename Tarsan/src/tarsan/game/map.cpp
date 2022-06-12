@@ -8,6 +8,7 @@
 #include "map.hpp"
 
 #include "../ncurses/color.hpp"
+#include "map-saver.hpp"
 
 
 void
@@ -147,7 +148,11 @@ Map::at(Coord coord) const {
 
 void
 Map::handleEvent(int key) {
-    _player.handleEvent(key, *this);
+    if (key == 'p') {
+        MapSaver::save(*this);
+    } else {
+        _player.handleEvent(key, *this);
+    }
 }
 
 
@@ -159,4 +164,27 @@ Map::size() const {
         static_cast<int>(_map[0].size()),
         static_cast<int>(_map.size() + 1),
     };
+}
+
+
+void
+Map::save(std::ostream &stream) const {
+    Coord s = size();
+    stream << "WIDTH " << s.x << ";\n";
+    stream << "HEIGHT " << s.y << ";\n";
+
+    stream << std::endl;
+
+    for (const auto & row : _map) {
+        for (const auto & el : row) {
+            if (el) el->save(stream);
+            else stream << " ";
+        }
+
+        stream << std::endl;
+    }
+
+    stream << std::endl;
+
+    _player.save(stream);
 }

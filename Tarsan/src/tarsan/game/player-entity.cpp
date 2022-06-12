@@ -131,9 +131,12 @@ PlayerEntity::_damage(int hp) {
 
 char
 PlayerEntity::_getChar(WINDOW * window) const {
-    const int colour = _tookDamage ? COLOR_RED : COLOR_GREEN;
-    const int bold = A_BOLD | A_REVERSE;
-    wattrset(window, Color::pair(colour, COLOR_DEFAULT) | bold);
+    if (window) {
+        const int colour = _tookDamage ? COLOR_RED : COLOR_GREEN;
+        const int bold = A_BOLD | A_REVERSE;
+        wattrset(window, Color::pair(colour, COLOR_DEFAULT) | bold);
+    }
+    
     return _direction == PlayerDirection::RIGHT ? '>' : '<';
 }
 
@@ -191,4 +194,18 @@ PlayerEntity::update(Map &map) {
 //            map.deleteEntity(position + Coord { 0, 2 });
         }
     }
+}
+
+
+void
+PlayerEntity::save(std::ostream &stream) const {
+    auto savePair = [&](std::string label, int value) {
+        stream << label << " " << value << ";\n";
+    };
+
+    savePair("DIRECTION", static_cast<int>(_direction));
+    savePair("VERT_VELOCITY", _vertVelocity);
+    savePair("HP", _hp);
+    savePair("JUMPING", _jumping ? 1 : 0);
+    savePair("TOOK_DAMAGE", _tookDamage ? 1 : 0);
 }

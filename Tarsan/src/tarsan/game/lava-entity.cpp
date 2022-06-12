@@ -32,7 +32,9 @@ LavaEntity::_spreadToSide(Map &map, Direction direction) {
 
 char
 LavaEntity::_getChar(WINDOW * window) const {
-    wattrset(window, Color::pair(COLOR_RED, COLOR_DEFAULT));
+    if (window) {
+        wattrset(window, Color::pair(COLOR_RED, COLOR_DEFAULT));
+    }
 //    return '#';
     return _level + '0';
 };

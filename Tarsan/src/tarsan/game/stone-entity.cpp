@@ -12,7 +12,9 @@
 
 char
 StoneEntity::_getChar(WINDOW * window) const {
-    wattrset(window, Color::pair(COLOR_MAGENTA, COLOR_DEFAULT));
+    if (window) {
+        wattrset(window, Color::pair(COLOR_MAGENTA, COLOR_DEFAULT));
+    }
     return '*';
 }
 

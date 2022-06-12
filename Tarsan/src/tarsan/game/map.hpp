@@ -16,12 +16,13 @@
 
 #include "entity.hpp"
 #include "player-entity.hpp"
+#include "savable.hpp"
 
 
 ///
 /// A class representing the map used for a single game
 /// 
-class Map: public Drawable {
+class Map: public Drawable, public Savable {
 public:
     using EntityPtr = std::unique_ptr<Entity>;
     using EntityRow = std::vector<EntityPtr>;
@@ -72,7 +73,7 @@ public:
 
     /// Draw the map to the given window
     /// @param window the window to draw to
-    void draw(WINDOW * window);
+    void draw(WINDOW * window) override;
 
     ///
     /// Perform a single frame update
@@ -107,4 +108,6 @@ public:
     /// Get the size of the map
     /// @returns the size of the map
     Coord size() const;
+
+    void save(std::ostream &stream) const override;
 };

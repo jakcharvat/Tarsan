@@ -106,5 +106,7 @@ public:
     /// @returns the remaining HP of this player
     int getHp() const;
 
+    void save(std::ostream &stream) const override;
+
     void update(Map &map) override;
 };

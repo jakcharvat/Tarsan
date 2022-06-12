@@ -13,6 +13,7 @@
 #include "tarsan/ncurses/app.hpp"
 
 #include "tarsan/game/map-generator.hpp"
+#include "tarsan/game/map-saver.hpp"
 
 
 /// @mainpage Tarsan

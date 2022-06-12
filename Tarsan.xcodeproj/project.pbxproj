@@ -18,6 +18,8 @@
 		DE24F32B28567417009EF665 /* file-parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F32928567417009EF665 /* file-parser.cpp */; };
 		DE24F33028567C9E009EF665 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16B4285581CB00762D44 /* main.cpp */; };
 		DE24F33228568098009EF665 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16AB285581CB00762D44 /* test.cpp */; };
+		DE24F33728568CA1009EF665 /* map-saver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F33528568CA1009EF665 /* map-saver.cpp */; };
+		DE24F33A28568EE9009EF665 /* savable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F33828568EE9009EF665 /* savable.cpp */; };
 		DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */; };
 		DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD32855FBB100DA94A6 /* direction.cpp */; };
 		DE3FDCDA285616B700DA94A6 /* raycast-layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD8285616B700DA94A6 /* raycast-layer.cpp */; };
@@ -73,6 +75,10 @@
 		DE24F33128567E04009EF665 /* duplicateKey.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = duplicateKey.txt; sourceTree = "<group>"; };
 		DE24F3332856816E009EF665 /* unknownKeyGenerator.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = unknownKeyGenerator.config; sourceTree = "<group>"; };
 		DE24F3342856821D009EF665 /* percentageOverflowGenerator.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = percentageOverflowGenerator.config; sourceTree = "<group>"; };
+		DE24F33528568CA1009EF665 /* map-saver.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "map-saver.cpp"; sourceTree = "<group>"; };
+		DE24F33628568CA1009EF665 /* map-saver.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "map-saver.hpp"; sourceTree = "<group>"; };
+		DE24F33828568EE9009EF665 /* savable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = savable.cpp; sourceTree = "<group>"; };
+		DE24F33928568EE9009EF665 /* savable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = savable.hpp; sourceTree = "<group>"; };
 		DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "input-window.cpp"; sourceTree = "<group>"; };
 		DE3FDCD02855ED4D00DA94A6 /* input-window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "input-window.hpp"; sourceTree = "<group>"; };
 		DE3FDCD22855FB7E00DA94A6 /* direction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = direction.hpp; sourceTree = "<group>"; };
@@ -264,6 +270,10 @@
 				DEEEA7452856704F008FD1B0 /* map-generator.cpp */,
 				DE24F3272856718C009EF665 /* map-generator-config.hpp */,
 				DE24F3262856718C009EF665 /* map-generator-config.cpp */,
+				DE24F33628568CA1009EF665 /* map-saver.hpp */,
+				DE24F33528568CA1009EF665 /* map-saver.cpp */,
+				DE24F33928568EE9009EF665 /* savable.hpp */,
+				DE24F33828568EE9009EF665 /* savable.cpp */,
 				DE24F32A28567417009EF665 /* file-parser.hpp */,
 				DE24F32928567417009EF665 /* file-parser.cpp */,
 			);
@@ -350,11 +360,13 @@
 				DE1FEA1B2855DB910016D98D /* window.cpp in Sources */,
 				DEFD16E7285585BE00762D44 /* app.cpp in Sources */,
 				DE24F33228568098009EF665 /* test.cpp in Sources */,
+				DE24F33A28568EE9009EF665 /* savable.cpp in Sources */,
 				DE24F33028567C9E009EF665 /* main.cpp in Sources */,
 				DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */,
 				DEFD16D2285581CB00762D44 /* color.cpp in Sources */,
 				DEFD16F228559C2B00762D44 /* stone-entity.cpp in Sources */,
 				DEEEA7472856704F008FD1B0 /* map-generator.cpp in Sources */,
+				DE24F33728568CA1009EF665 /* map-saver.cpp in Sources */,
 				DE1FEA212855E11A0016D98D /* drawable.cpp in Sources */,
 				DE24F3282856718C009EF665 /* map-generator-config.cpp in Sources */,
 				DEFD16F528559CC000762D44 /* player-entity.cpp in Sources */,

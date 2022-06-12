@@ -11,6 +11,7 @@
 
 #include "../helpers/direction.hpp"
 #include "../helpers/raycast-layer.hpp"
+#include "savable.hpp"
 
 
 class Map;
@@ -19,7 +20,7 @@ class Map;
 ///
 /// A class storing a single entity
 ///
-class Entity {
+class Entity: public Savable {
 private:
     /// Get the char to represent this entity.
     ///
@@ -73,6 +74,8 @@ public:
     /// Check the lava level at this entity
     /// @returns the lava level of this entity, 0 if there is no lava
     virtual short getLavaLevel() const;
+
+    void save(std::ostream &stream) const override;
 
     ///
     /// Virtual destructor for abstract class

@@ -51,3 +51,9 @@ short
 Entity::getLavaLevel() const {
     return 0;
 }
+
+
+void
+Entity::save(std::ostream &stream) const {
+    stream << _getChar(nullptr);
+}
