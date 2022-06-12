@@ -36,4 +36,9 @@ struct Coord {
     /// @param other the other coordinate
     /// @returns true if the two coordinates are not equal
     bool operator != (const Coord & other) const;
+
+    /// Add two coords together
+    /// @param other the other coordinate to add
+    /// @returns the sum of the two vectors
+    Coord operator + (const Coord & other) const;
 };
