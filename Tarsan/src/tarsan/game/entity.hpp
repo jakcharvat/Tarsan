@@ -21,8 +21,9 @@ private:
     ///
     /// If needed, this method can also set a specific style for the entity
     ///
+    /// @param window the window to use for drawing. Can be used to set attributes on it
     /// @returns the char to draw
-    virtual char getChar() const = 0;
+    virtual char getChar(WINDOW * window) const = 0;
 
 public:
     /// Construct an entity at the given position

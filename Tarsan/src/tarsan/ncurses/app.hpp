@@ -13,6 +13,9 @@
 
 #include "../game/map.hpp"
 
+#include "input-window.hpp"
+#include "window.hpp"
+
 
 ///
 /// The main driver of the app
@@ -49,9 +52,19 @@ private:
     std::chrono::steady_clock::time_point _nextUpdate;
 
     ///
+    /// Input receiver
+    ///
+    std::unique_ptr<InputWindow> _input = std::make_unique<InputWindow>();
+
+    ///
     /// The map of the current game
     ///
-    std::unique_ptr<Map> _map = std::make_unique<Map>();
+    std::shared_ptr<Map> _map = std::make_shared<Map>();
+
+    ///
+    /// The window of the current game
+    ///
+    std::unique_ptr<Window> _window = std::make_unique<Window>(stdscr, _map, Coord { 0, 0 }, Coord { 20, 20 }, false);
 
     ///
     /// Update the game

@@ -11,8 +11,8 @@
 
 
 char
-StoneEntity::getChar() const {
-    attrset(Color::pair(COLOR_MAGENTA, COLOR_DEFAULT));
+StoneEntity::getChar(WINDOW * window) const {
+    wattrset(window, Color::pair(COLOR_MAGENTA, COLOR_DEFAULT));
     return '*';
 }
 

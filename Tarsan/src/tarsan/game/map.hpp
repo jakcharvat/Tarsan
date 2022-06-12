@@ -10,6 +10,8 @@
 #include <memory>
 #include <vector>
 
+#include "../ncurses/drawable.hpp"
+
 #include "entity.hpp"
 #include "stone-entity.hpp"
 #include "player-entity.hpp"
@@ -17,7 +19,7 @@
 #include "lava-entity.hpp"
 
 
-class Map {
+class Map: public Drawable {
 private:
     using EntityPtr = std::unique_ptr<Entity>;
     using EntityRow = std::vector<EntityPtr>;

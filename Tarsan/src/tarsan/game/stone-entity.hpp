@@ -15,7 +15,7 @@
 /// 
 class StoneEntity: public Entity {
 private:
-    char getChar() const override;
+    char getChar(WINDOW * window) const override;
 
 public:
     /// Construct a stone entity at the given position

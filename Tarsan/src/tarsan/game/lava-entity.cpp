@@ -11,8 +11,8 @@
 
 
 char
-LavaEntity::getChar() const {
-    attrset(Color::pair(COLOR_RED, COLOR_DEFAULT));
+LavaEntity::getChar(WINDOW * window) const {
+    wattrset(window, Color::pair(COLOR_RED, COLOR_DEFAULT));
     return '#';
 };
 

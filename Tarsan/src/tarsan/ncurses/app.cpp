@@ -15,13 +15,14 @@
 
 
 #include "../logging/fatal-error.hpp"
+#include "../logging/menu-error.hpp"
+#include "../logging/pause-error.hpp"
 #include "../logging/out.hpp"
 #include "../ncurses/char-helpers.hpp"
 
 
 void
 App::update() {
-
 }
 
 
@@ -67,11 +68,22 @@ App::run() {
     _nextPoll = std::chrono::steady_clock::now();
     _nextUpdate = std::chrono::steady_clock::now();
 
-    _map->draw(stdscr);
+    try {
+        _input->setup();
+        _window->setup();
+    } catch (const MenuError & e) {
+        throw FatalError("Window setup error");
+    } catch (const PauseError & e) {
+        throw FatalError("Window setup error");
+    }
+
+    _window->draw();
 
     while (true) {
-        int c = getch();
-        out() << c << std::endl;
+        int c = _input->getchar();
+        _window->draw();
+
+        out() << "Got char " << c << std::endl;
 
         if (CharHelpers::isEscape(c)) break;
         if (c == 'q') break;

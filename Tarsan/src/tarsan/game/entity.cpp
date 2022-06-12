@@ -17,6 +17,6 @@ coord(position) { }
 void
 Entity::draw(WINDOW *window) const {
     wmove(window, coord.y, coord.x);
-    attrset(Color::pair(COLOR_WHITE, COLOR_DEFAULT));
-    printw("%c", getChar());
+    wattrset(window, Color::pair(COLOR_WHITE, COLOR_DEFAULT));
+    wprintw(window, "%c", getChar(window));
 }

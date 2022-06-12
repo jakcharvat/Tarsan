@@ -25,19 +25,19 @@ Map::_generateRandomMap() {
                 int type = random() % 4;
                 switch (type) {
                     case 0: {
+                        entity = nullptr;
+                    }
+                    case 1: {
                         entity = std::make_unique<StoneEntity>(position);
                         break;
                     }
-                    case 1: {
+                    case 2: {
                         entity = std::make_unique<LianaEntity>(position);
                         break;
                     }
-                    case 2: {
+                    case 3: {
                         entity = std::make_unique<LavaEntity>(position);
                         break;
-                    }
-                    case 3: {
-                        entity = nullptr;
                     }
                 }
             }

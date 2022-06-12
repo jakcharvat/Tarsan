@@ -12,7 +12,7 @@
 /// A class storing a player entity
 /// 
 class PlayerEntity: public Entity {
-    char getChar() const override;
+    char getChar(WINDOW * window) const override;
 
 public:
     /// Construct a player entity at the given position
