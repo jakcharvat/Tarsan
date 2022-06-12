@@ -15,10 +15,7 @@
 #include "../ncurses/drawable.hpp"
 
 #include "entity.hpp"
-#include "stone-entity.hpp"
 #include "player-entity.hpp"
-#include "liana-entity.hpp"
-#include "lava-entity.hpp"
 
 
 class Map: public Drawable {
@@ -29,14 +26,9 @@ public:
 
 private:
     ///
-    /// Generate a random map
-    ///
-    static EntityMap _generateRandomMap();
-
-    ///
     /// A vector storing the full map
     ///
-    EntityMap _map = _generateRandomMap();
+    EntityMap _map;
 
     ///
     /// The player

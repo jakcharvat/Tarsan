@@ -10,50 +10,6 @@
 #include "../ncurses/color.hpp"
 
 
-Map::EntityMap
-Map::_generateRandomMap() {
-    const int WIDTH = 40;
-    const int HEIGHT = 20;
-
-    EntityMap map;
-    for (int i = 0; i < HEIGHT; ++i) {
-        EntityRow row;
-        for (int j = 0; j < WIDTH; ++j) {
-            std::unique_ptr<Entity> entity;
-            Coord position { j, i };
-            if (i == 0 || j == 0 || i == HEIGHT - 1 || j == WIDTH - 1) {
-                entity = std::make_unique<StoneEntity>(position);
-            } else {
-                if (random() % 4 == 0) {
-                    entity = std::make_unique<StoneEntity>(position);
-                } else if (random() % 4 == 0) {
-                    entity = std::make_unique<LianaEntity>(position);
-                } else if (random() % 50 == 0) {
-                    entity = std::make_unique<LavaEntity>(position);
-                }
-            }
-
-            row.push_back(std::move(entity));
-        }
-        map.push_back(std::move(row));
-    }
-
-//    map[1][18] = std::make_unique<LavaEntity>(Coord {18, 1});
-//    map[18][13] = std::make_unique<LavaEntity>(Coord {13, 18});
-
-//    map[2][1] = std::make_unique<LavaEntity>(Coord {1, 2});
-//    map[1][2] = std::make_unique<LavaEntity>(Coord {2, 1});
-
-//    for (int x = 1; x < 10; ++x) {
-//        map[9][x] = std::make_unique<StoneEntity>(Coord {x, 9});
-//    }
-//
-//    map[10][1] = std::make_unique<LianaEntity>(Coord {1, 10});
-
-    return map;
-}
-
-
 void
 Map::_deleteAllPending() {
     for (auto coord : _toDelete) {

@@ -14,16 +14,18 @@
 		DE1FEA1B2855DB910016D98D /* window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA192855DB910016D98D /* window.cpp */; };
 		DE1FEA1E2855DD760016D98D /* pause-error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA1C2855DD760016D98D /* pause-error.cpp */; };
 		DE1FEA212855E11A0016D98D /* drawable.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE1FEA1F2855E11A0016D98D /* drawable.cpp */; };
+		DE24F3282856718C009EF665 /* map-generator-config.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F3262856718C009EF665 /* map-generator-config.cpp */; };
+		DE24F32B28567417009EF665 /* file-parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE24F32928567417009EF665 /* file-parser.cpp */; };
+		DE24F33028567C9E009EF665 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16B4285581CB00762D44 /* main.cpp */; };
 		DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */; };
 		DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD32855FBB100DA94A6 /* direction.cpp */; };
 		DE3FDCDA285616B700DA94A6 /* raycast-layer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DE3FDCD8285616B700DA94A6 /* raycast-layer.cpp */; };
 		DEEEA73C28565FEE008FD1B0 /* alert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEEEA73A28565FEE008FD1B0 /* alert.cpp */; };
 		DEEEA74128566C2E008FD1B0 /* map-loader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEEEA73F28566C2E008FD1B0 /* map-loader.cpp */; };
+		DEEEA7472856704F008FD1B0 /* map-generator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEEEA7452856704F008FD1B0 /* map-generator.cpp */; };
 		DEFD16D2285581CB00762D44 /* color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD168F285581CB00762D44 /* color.cpp */; };
 		DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD1690285581CB00762D44 /* char-helpers.cpp */; };
 		DEFD16DA285581CB00762D44 /* out.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16A8285581CB00762D44 /* out.cpp */; };
-		DEFD16DC285581CB00762D44 /* test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16AB285581CB00762D44 /* test.cpp */; };
-		DEFD16E0285581CB00762D44 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16B4285581CB00762D44 /* main.cpp */; };
 		DEFD16E4285582B700762D44 /* fatal-error.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E2285582B700762D44 /* fatal-error.cpp */; };
 		DEFD16E7285585BE00762D44 /* app.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E5285585BE00762D44 /* app.cpp */; };
 		DEFD16EB2855983B00762D44 /* entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DEFD16E92855983B00762D44 /* entity.cpp */; };
@@ -59,6 +61,14 @@
 		DE1FEA1D2855DD760016D98D /* pause-error.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "pause-error.hpp"; sourceTree = "<group>"; };
 		DE1FEA1F2855E11A0016D98D /* drawable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = drawable.cpp; sourceTree = "<group>"; };
 		DE1FEA202855E11A0016D98D /* drawable.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = drawable.hpp; sourceTree = "<group>"; };
+		DE24F3262856718C009EF665 /* map-generator-config.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "map-generator-config.cpp"; sourceTree = "<group>"; };
+		DE24F3272856718C009EF665 /* map-generator-config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "map-generator-config.hpp"; sourceTree = "<group>"; };
+		DE24F32928567417009EF665 /* file-parser.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "file-parser.cpp"; sourceTree = "<group>"; };
+		DE24F32A28567417009EF665 /* file-parser.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "file-parser.hpp"; sourceTree = "<group>"; };
+		DE24F32C2856768E009EF665 /* generator.config */ = {isa = PBXFileReference; lastKnownFileType = text; path = generator.config; sourceTree = "<group>"; };
+		DE24F32D285676FE009EF665 /* missingValue.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = missingValue.txt; sourceTree = "<group>"; };
+		DE24F32E285677B0009EF665 /* nonIntValue.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = nonIntValue.txt; sourceTree = "<group>"; };
+		DE24F32F28567C5D009EF665 /* noSemicolon.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = noSemicolon.txt; sourceTree = "<group>"; };
 		DE3FDCCF2855ED4D00DA94A6 /* input-window.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "input-window.cpp"; sourceTree = "<group>"; };
 		DE3FDCD02855ED4D00DA94A6 /* input-window.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "input-window.hpp"; sourceTree = "<group>"; };
 		DE3FDCD22855FB7E00DA94A6 /* direction.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = direction.hpp; sourceTree = "<group>"; };
@@ -69,6 +79,8 @@
 		DEEEA73B28565FEE008FD1B0 /* alert.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = alert.hpp; sourceTree = "<group>"; };
 		DEEEA73F28566C2E008FD1B0 /* map-loader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "map-loader.cpp"; sourceTree = "<group>"; };
 		DEEEA74028566C2E008FD1B0 /* map-loader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "map-loader.hpp"; sourceTree = "<group>"; };
+		DEEEA7452856704F008FD1B0 /* map-generator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = "map-generator.cpp"; sourceTree = "<group>"; };
+		DEEEA7462856704F008FD1B0 /* map-generator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = "map-generator.hpp"; sourceTree = "<group>"; };
 		DEFD13E5285581B600762D44 /* Tarsan */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Tarsan; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEFD165C285581CA00762D44 /* Tarsan.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Tarsan.entitlements; sourceTree = "<group>"; };
 		DEFD165F285581CB00762D44 /* tarsan-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tarsan-logo.png"; sourceTree = "<group>"; };
@@ -216,6 +228,10 @@
 		DEFD16BC285581CB00762D44 /* examples */ = {
 			isa = PBXGroup;
 			children = (
+				DE24F32C2856768E009EF665 /* generator.config */,
+				DE24F32D285676FE009EF665 /* missingValue.txt */,
+				DE24F32E285677B0009EF665 /* nonIntValue.txt */,
+				DE24F32F28567C5D009EF665 /* noSemicolon.txt */,
 			);
 			path = examples;
 			sourceTree = "<group>";
@@ -237,6 +253,12 @@
 				DE1FEA132855D0970016D98D /* map.cpp */,
 				DEEEA74028566C2E008FD1B0 /* map-loader.hpp */,
 				DEEEA73F28566C2E008FD1B0 /* map-loader.cpp */,
+				DEEEA7462856704F008FD1B0 /* map-generator.hpp */,
+				DEEEA7452856704F008FD1B0 /* map-generator.cpp */,
+				DE24F3272856718C009EF665 /* map-generator-config.hpp */,
+				DE24F3262856718C009EF665 /* map-generator-config.cpp */,
+				DE24F32A28567417009EF665 /* file-parser.hpp */,
+				DE24F32928567417009EF665 /* file-parser.cpp */,
 			);
 			path = game;
 			sourceTree = "<group>";
@@ -315,15 +337,18 @@
 				DE1FEA0E2855CE4A0016D98D /* liana-entity.cpp in Sources */,
 				DEFD16EF2855985C00762D44 /* coord.cpp in Sources */,
 				DEFD16EB2855983B00762D44 /* entity.cpp in Sources */,
+				DE24F32B28567417009EF665 /* file-parser.cpp in Sources */,
 				DEEEA74128566C2E008FD1B0 /* map-loader.cpp in Sources */,
 				DE3FDCD12855ED4D00DA94A6 /* input-window.cpp in Sources */,
 				DE1FEA1B2855DB910016D98D /* window.cpp in Sources */,
 				DEFD16E7285585BE00762D44 /* app.cpp in Sources */,
-				DEFD16DC285581CB00762D44 /* test.cpp in Sources */,
+				DE24F33028567C9E009EF665 /* main.cpp in Sources */,
 				DEFD16D3285581CB00762D44 /* char-helpers.cpp in Sources */,
 				DEFD16D2285581CB00762D44 /* color.cpp in Sources */,
 				DEFD16F228559C2B00762D44 /* stone-entity.cpp in Sources */,
+				DEEEA7472856704F008FD1B0 /* map-generator.cpp in Sources */,
 				DE1FEA212855E11A0016D98D /* drawable.cpp in Sources */,
+				DE24F3282856718C009EF665 /* map-generator-config.cpp in Sources */,
 				DEFD16F528559CC000762D44 /* player-entity.cpp in Sources */,
 				DE1FEA112855CFB20016D98D /* lava-entity.cpp in Sources */,
 				DE1FEA1E2855DD760016D98D /* pause-error.cpp in Sources */,
@@ -332,7 +357,6 @@
 				DE3FDCD42855FBB100DA94A6 /* direction.cpp in Sources */,
 				DE1FEA152855D0970016D98D /* map.cpp in Sources */,
 				DEFD16DA285581CB00762D44 /* out.cpp in Sources */,
-				DEFD16E0285581CB00762D44 /* main.cpp in Sources */,
 				DEFD16E4285582B700762D44 /* fatal-error.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

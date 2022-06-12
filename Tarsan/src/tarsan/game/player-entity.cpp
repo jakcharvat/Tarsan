@@ -13,6 +13,8 @@
 #include "../logging/menu-error.hpp"
 
 #include "map.hpp"
+#include "stone-entity.hpp"
+#include "liana-entity.hpp"
 
 
 void

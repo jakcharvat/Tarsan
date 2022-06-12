@@ -12,6 +12,8 @@
 #include "tarsan/logging/fatal-error.hpp"
 #include "tarsan/ncurses/app.hpp"
 
+#include "tarsan/game/file-parser.hpp"
+
 
 int main() {
     srandom(static_cast<unsigned int>(time(nullptr)));
